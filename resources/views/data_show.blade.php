@@ -164,7 +164,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <th><a href="./pdfDld">点此跳转</a></th>
+                            <th><a href="{{url('/pdfDld/')}}/{{ $data->public_number }}" target="_blank">点此跳转</a></th>
                         </tr>
                         <tr>
                             <td>{{ $data->id}}</td>

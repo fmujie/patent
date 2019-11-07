@@ -17,10 +17,8 @@ Route::get('/', function () {
 
 Route::get('/search_view','\App\Http\Controllers\Patent\UserController@search_view');
 
-Route::get('/pdfDld/{patentNum}','\App\Http\Controllers\Patent\UserController@pdfDld');
-
 Route::post('/search_data','\App\Http\Controllers\Patent\UserController@search_data');
 
-Route::post('/test','\App\Http\Controllers\Patent\UserController@test');
+Route::get('/pdfDld/{patentNum}','\App\Http\Controllers\Patent\UserController@pdfDld');
 
 

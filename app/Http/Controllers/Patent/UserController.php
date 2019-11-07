@@ -9,24 +9,6 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
 
-    public function test(Request $request)
-    {
-        $input = $request->all();
-        $id = $request->input('id');
-        $txt = $request->input('txt');
-        dd($request);
-        dump($id, $txt);
-    }
-
-    public function select()
-    {
-        $id = 1;
-        $datas = DB::table('patent')
-            ->where('id',  '=', $id)
-            ->get();
-        return $datas;
-    }
-
     public function search_view()
     {
         return view('search');
@@ -38,7 +20,6 @@ class UserController extends Controller
         // dump($input);
         $selectCon = $Request->input('transData');
         dump($selectCon);
-        // DB::getConnections();
         $sql = 'select * from patent where ' . $selectCon;
         // dd($sql);
         $sqls = 'select * from patent where ';
