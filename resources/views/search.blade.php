@@ -11,7 +11,9 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <title>专利搜索</title>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.0.0/sweetalert.min.js"></script>
+    <title>专利检索</title>
 </head>
 
 <body>
@@ -470,8 +472,8 @@
                         <span id="mergeTimeVal"></span>
                     </div>
                     <div class="card-footer">
-                        <!-- <button id="mergeOption">合并</button>
-                        <button id="mergeOptionTime">时间合并</button> -->
+                        <!-- <button id="mergeOption">合并</button> -->
+                        <!-- <button id="mergeOptionTime">时间合并</button> -->
                         <form action="/search_data" method="POST" class="form-inline">
                             {{ csrf_field() }}
                             <input type="hidden" id="submitVal" class="form-control search_data" type="text" name="transData" value="" placeholder="Search">
@@ -483,9 +485,8 @@
             </div>
         </div>
     </div>
+    @include('sweet::alert')
     <script src="js/patentSearch.js"></script>
-    <script>
-    </script>
 </body>
 
 </html>
