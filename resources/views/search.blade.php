@@ -475,7 +475,7 @@
                         <form action="/search_data" method="POST" class="form-inline">
                             {{ csrf_field() }}
                             <input type="hidden" id="submitVal" class="form-control search_data" type="text" name="transData" value="" placeholder="Search">
-                            <button type="button" id="searchBtn" class="btn btn-primary">开始搜索</button>
+                            <button type="submit" id="searchBtn" class="btn btn-primary">开始搜索</button>
                         </form>
                         <button id="clears" class="btn btn-secondary">重置</button>
                     </div>
