@@ -221,9 +221,14 @@ $(document).ready(function () {
             mergeOption();
         });
 
-        $('#mergeOptionTime').click(function () {
-            mergeOptionTime();
-        });
+        // $('#mergeOption').click(function () {
+        //     mergeOption();
+        // });
+
+
+        // $('#mergeOptionTime').click(function () {
+        //     mergeOptionTime();
+        // });
 
     })
 });
