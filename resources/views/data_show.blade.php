@@ -40,7 +40,7 @@
                 <li></li>
                 <li></li>
             </ul>
-            <h1 class="display-3">Display 3</h1>
+            <h1 class="display-3">Searched information display</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
