@@ -8,11 +8,8 @@
 </head>
 <body>
     <span>测试文字</span>
-<<<<<<< HEAD
     <!-- <span>我添加了一行</span> -->
-=======
     <span>我添加了一行</span>
-    <span>我添加了又一行</span>
->>>>>>> 3937e36b409bc45a52368f24538a199708c21b03
+
 </body>
 </html>
