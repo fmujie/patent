@@ -219,23 +219,9 @@ $(document).ready(function () {
 
         $('#searchBtn').click(function () {
             mergeOption();
-            // console.log()
-            // console.log($('#mergeVal').text().length);
-            // alert("123");
-            // var endResLen = $('#mergeVal').text().length;
-            // if (endResLen == 0) {
-            //     alert("请完善查询字段信息");
-            //     location.reload();
-            //     console.log("刷新结束");
-            // }
         });
-        // $('#mergeOption').click(function () {
-        //     mergeOption();
-        // });
-
 
         $('#mergeOptionTime').click(function () {
-            // location.reload();
             mergeOptionTime();
         });
 
