@@ -41,6 +41,13 @@
                 <li></li>
             </ul>
             <h1 class="display-3">Display 3</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{url('/search_view/')}}">Return Search</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="#">Search Results</a> </li>
+                </ol>
+            </nav>
             <div class="row">
                 <table class="table table-dark table-hover">
                     <thead>
