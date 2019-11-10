@@ -72,7 +72,7 @@
                                 <select name="demands_option" id="select2">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="权利要求" disabled>
@@ -86,7 +86,7 @@
                                 <select name="demand_option" id="select3">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="独立权利要求" disabled>
@@ -100,7 +100,7 @@
                                 <select name="introduction_option" id="select4">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="说明书" disabled>
@@ -111,57 +111,57 @@
                     <li class=" field-item time">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <select name="ask_begin_date_option" id="">
+                                <select name="ask_begin_date_option" id="select5">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="申请日" disabled>
-                            <input type="date" class="form-control" id="test" name="ask_begin_date" placeholder="例如:132465789">
+                            <input type="date" class="form-control" id="ask_begin_date" name="ask_begin_date" placeholder="例如:132465789">
                             <!-- <span class="input-group-text">到</span> -->
                             <div class="timedao">
                                 <input type="text" class="input-group-text form-control" style="width:50px;" placeholder="到" disabled>
                             </div>
-                            <input type="date" class="form-control" name="ask_over_date" placeholder="例如:132465789">
+                            <input type="date" class="form-control" id="ask_over_date" name="ask_over_date" placeholder="例如:132465789">
                         </div>
                     </li>
                     <!-- t6 -->
                     <li class=" field-item time">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <select name="public_begin_date_option" id="">
+                                <select name="public_begin_date_option" id="select6">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="公开公告日" disabled>
-                            <input type="date" class="form-control" name="public_begin_date" placeholder="例如:132465789">
+                            <input type="date" class="form-control" id="public_begin_date" name="public_begin_date" placeholder="例如:132465789">
                             <!-- <span class="input-group-text">到</span> -->
                             <div class="timedao">
                                 <input type="text" class="input-group-text form-control" style="width:50px;" placeholder="到" disabled>
                             </div>
-                            <input type="date" class="form-control" name="public_over_date" placeholder="例如:132465789">
+                            <input type="date" class="form-control" id="public_over_date" name="public_over_date" placeholder="例如:132465789">
                         </div>
                     </li>
                     <!-- t7 -->
                     <li class=" field-item time">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <select name="priority_begin_date_option" id="">
+                                <select name="priority_begin_date_option" id="select7">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="优先权日" disabled>
-                            <input type="date" class="form-control" name="priority_begin_date" placeholder="例如:132465789">
+                            <input type="date" class="form-control" id="priority_begin_date" name="priority_begin_date" placeholder="例如:132465789">
                             <!-- <span class="input-group-text">到</span> -->
                             <div class="timedao">
                                 <input type="text" class="input-group-text form-control" style="width:50px;" placeholder="到" disabled>
                             </div>
-                            <input type="date" class="form-control" name="priority_over_date" placeholder="例如:132465789">
+                            <input type="date" class="form-control" id="priority_over_date" name="priority_over_date" placeholder="例如:132465789">
                         </div>
                     </li>
                     <!-- 8 -->
@@ -171,7 +171,7 @@
                                 <select name="public_number_option" id="select8">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="公开(公告)号" disabled>
@@ -185,7 +185,7 @@
                                 <select name="ask_number_option" id="select9">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="申请号" disabled>
@@ -199,7 +199,7 @@
                                 <select name="priority_number_option" id="select10">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="优先权号" disabled>
@@ -213,7 +213,7 @@
                                 <select name="ipc_number_option" id="select11">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="IPC分类号" disabled>
@@ -227,7 +227,7 @@
                                 <select name="ipc_primary_number_option" id="select12">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="IPC主分类号" disabled>
@@ -241,7 +241,7 @@
                                 <select name="cpc_number_option" id="select13">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="CPC分类号" disabled>
@@ -255,7 +255,7 @@
                                 <select name="loc_number_option" id="select14">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="LOC分类号" disabled>
@@ -269,10 +269,10 @@
                                 <select name="origin_name_option" id="select15">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
-                            <input type="text" class="form-control col-3" placeholder="[全字段]申请(专利权)人" disabled>
+                            <input type="text" class="form-control col-3" placeholder="原始申请(专利权)人" disabled>
                             <input type="text" class="form-control" id="origin_name" name="origin_name" placeholder="例如:华为">
                         </div>
                     </li>
@@ -283,7 +283,7 @@
                                 <select name="present_name_option" id="select16">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="当前申请(专利权)人" disabled>
@@ -298,7 +298,7 @@
                                 <select name="origin_name_option" id="select17">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="原始申请(专利权)人" disabled>
@@ -313,7 +313,7 @@
                                 <select name="present_name_address_option" id="select18">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="当前申请(专利权)人地址" disabled>
@@ -327,7 +327,7 @@
                                 <select name="invent_name_option" id="select19">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="发明人" disabled>
@@ -341,7 +341,7 @@
                                 <select name="agent_name_option" id="select20">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="代理人" disabled>
@@ -355,7 +355,7 @@
                                 <select name="agent_company_name_option" id="select21">
                                     <option value="AND">AND</option>
                                     <option value="OR">OR</option>
-                                    <option value="NOT IN">NOT</option>
+                                    <option value="NOT">NOT</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control col-3" placeholder="代理机构" disabled>
@@ -389,6 +389,25 @@
                             <!-- 4 -->
                             <span id="introduction_option"></span>
                             <span id="introduction_result"></span>
+
+                            <!-- t5 -->
+                            <span id="ask_begin_date_option"></span>
+                            <span id="ask_begin_date_result"></span>
+                            <span id="ask_over_date_result"></span>
+                            <span id="ask_result"></span>
+
+
+                            <!-- t6 -->
+                            <span id="public_begin_date_option"></span>
+                            <span id="public_begin_date_result"></span>
+                            <span id="public_over_date_result"></span>
+                            <span id="public_result"></span>
+
+                            <!-- t7 -->
+                            <span id="priority_begin_date_option"></span>
+                            <span id="priority_begin_date_result"></span>
+                            <span id="priority_over_date_result"></span>
+                            <span id="priority_result"></span>
 
                             <!-- 8 -->
                             <span id="public_number_option"></span>
@@ -448,13 +467,15 @@
 
                         </div>
                         <span id="mergeVal"></span>
+                        <span id="mergeTimeVal"></span>
                     </div>
                     <div class="card-footer">
-                        <!-- <button id="mergeOption">合并</button> -->
+                        <!-- <button id="mergeOption">合并</button>
+                        <button id="mergeOptionTime">时间合并</button> -->
                         <form action="/search_data" method="POST" class="form-inline">
                             {{ csrf_field() }}
                             <input type="hidden" id="submitVal" class="form-control search_data" type="text" name="transData" value="" placeholder="Search">
-                            <button type="submit" id="searchBtn" class="btn btn-primary">开始搜索</button>
+                            <button type="button" id="searchBtn" class="btn btn-primary">开始搜索</button>
                         </form>
                         <button id="clears" class="btn btn-secondary">重置</button>
                     </div>
