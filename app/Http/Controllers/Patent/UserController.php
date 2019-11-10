@@ -30,6 +30,10 @@ class UserController extends Controller
         $sqls = 'select * from patent where ';
         $datas = DB::select($sql);
         // dd($datas);
+        if ($datas == null) {
+            Alert::info("Didn't find any information");
+            return view('data_show', ['datas' => $datas]);
+        }
         return view('data_show', ['datas' => $datas]);
     }
 
