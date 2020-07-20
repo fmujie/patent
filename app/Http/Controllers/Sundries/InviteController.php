@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Sundries;
 
+use Alert;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Validator;
-// use Illuminate\Validation\Validator;
-use Alert;
+
 
 
 class InviteController extends Controller
@@ -27,7 +27,6 @@ class InviteController extends Controller
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             $ret = $validator->errors();
-            $checkNameRes = $ret->get('user_name');
             $checkEmailRes = $ret->get('user_email');
             
             Alert::warning($checkEmailRes[0], '提交格式有误');
