@@ -21,4 +21,7 @@ Route::post('/search_data','\App\Http\Controllers\Patent\UserController@search_d
 
 Route::get('/pdfDld/{patentNum}','\App\Http\Controllers\Patent\UserController@pdfDld');
 
+Route::get('/sundries/invite/{type}', 'Sundries\InviteController@inviteView');
+Route::any('/sundries/invite/post', 'Sundries\InviteController@inviteData');
+
 

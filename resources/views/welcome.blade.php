@@ -89,6 +89,7 @@
 
             <div class="links">
                 <a href="./search_view">search_view</a>
+                <a href="./sundries/invite/0">invite</a>
             </div>
         </div>
     </div>
