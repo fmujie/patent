@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <th><a href=".{{ $data->page_address }}">点此跳转</a></th>
+                            <th><a href=".{{ $data->page_address }}" target="_blank">点此跳转</a></th>
                         </tr>
                         @endforeach
                     </tbody>

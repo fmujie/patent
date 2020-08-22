@@ -165,8 +165,10 @@ return [
         /*
          * Package Service Providers...
          */
-         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-         Overtrue\LaravelPinyin\ServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        Overtrue\LaravelPinyin\ServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -228,6 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Pinyin' => Overtrue\LaravelPinyin\Facades\Pinyin::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

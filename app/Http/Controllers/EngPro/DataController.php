@@ -153,7 +153,7 @@ class DataController extends Controller
         $qrCP = 'qrcodes/' . $pyStrRes . md5(mt_rand(0, 999)) . '.png';
 
         QrCode::format('png')->errorCorrection('H')
-        ->size(200)->merge('/public/qrcodes/logo.png', .3)
+        ->size(400)->merge('/public/qrcodes/logo.png', .3)
         ->generate($urlStr, public_path($qrCP));
 
         return $qrCP;
