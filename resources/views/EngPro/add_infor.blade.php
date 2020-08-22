@@ -56,7 +56,7 @@
           <textarea class="form-control" rows="5" id="content" name="intro" placeholder="Please enter details" required></textarea>
         <p>上传音频文件:</p>
         <div class="custom-file mb-3">
-          <input type="file" class="custom-file-input" id="audioFile" name="audioFile">
+          <input type="file" class="custom-file-input" id="audioFile" name="audioFile" required>
           <label class="custom-file-label" for="audioFile">选择文件</label>
         </div>
         <div class="mt-3">

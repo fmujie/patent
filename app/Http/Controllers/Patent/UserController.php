@@ -12,7 +12,7 @@ class UserController extends Controller
 
     public function search_view()
     {
-        return view('search');
+        return view('Patent/search');
     }
 
     public function search_data(Request $Request)
@@ -32,9 +32,8 @@ class UserController extends Controller
         // dd($datas);
         if ($datas == null) {
             Alert::info("Didn't find any information");
-            return view('data_show', ['datas' => $datas]);
         }
-        return view('data_show', ['datas' => $datas]);
+        return view('Patent/data_show', ['datas' => $datas]);
     }
 
     public function pdfDld($patentNum)

@@ -46,6 +46,10 @@ class DataController extends Controller
         }
         
         $audio_path = $this->uploadFile($file);
+        if (!$audio_path) {
+            Alert::error('音频文件上传失败');
+            return view('EngPro/add_infor');
+        }
         $qr_path = $this->genQR($pyStrRes);
         $page_address = '/' .$pyStrRes;
 

@@ -46,7 +46,6 @@ Route::group(['middleware' => ['auth', 'role:Administer|EngProer']], function ()
     Route::get('/engpro/show_info', 'EngPro\DataController@showInfor');
 });
 
-
 Route::get('/engpro/{page_address}', 'EngPro\DataController@showPage');
 
 // Route::get('/upload',  'TestController@test');
