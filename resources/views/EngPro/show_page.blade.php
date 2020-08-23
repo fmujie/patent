@@ -22,6 +22,22 @@
             opacity: 1;
         }
     }
+
+    @font-face {
+        font-family: 'ysyrxk';
+        src: url('{{ asset('./font/ysyrxk.ttf') }}');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    #introContain {
+        font-family: 'ysyrxk'!important;
+        font-size: 25px;
+    }
+    .card-title {
+        font-family: 'ysyrxk'!important;
+        font-size: 30px;
+    }
   </style>
 </head>
 <body>
