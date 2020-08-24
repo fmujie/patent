@@ -52,3 +52,7 @@ Route::middleware('throttle:60,1')->group(function () {
 // Route::get('/upload',  'TestController@test');
 // Route::post('/upload', 'TestController@uploadFile');
 // Route::get('/test', 'TestController@test')->middleware('role:EngProer|Administer');
+
+Route::get('/test', 'Qq\QqAuthController@test');
+Route::get('qq', 'Qq\QqAuthController@qq');
+Route::get('qq_callback', 'Qq\QqAuthController@qq_callback');

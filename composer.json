@@ -12,12 +12,13 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "laravelcollective/html": "5.8.*",
         "overtrue/laravel-pinyin": "~4.0",
         "simplesoftwareio/simple-qrcode": "~2",
-        "uxweb/sweet-alert": "2.0.1",
-        "wapmorgan/mp3info": "^0.0.5",
+        "socialiteproviders/qq": "^3.0",
         "spatie/laravel-permission": "^3.16",
-        "laravelcollective/html": "5.8.*"
+        "uxweb/sweet-alert": "2.0.1",
+        "wapmorgan/mp3info": "^0.0.5"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
