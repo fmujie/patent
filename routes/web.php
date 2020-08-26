@@ -54,5 +54,5 @@ Route::middleware('throttle:60,1')->group(function () {
 // Route::get('/test', 'TestController@test')->middleware('role:EngProer|Administer');
 
 Route::get('/test', 'Qq\QqAuthController@test');
-Route::get('qq', 'Qq\QqAuthController@qq');
-Route::get('qq_callback', 'Qq\QqAuthController@qq_callback');
+Route::get('qqlogin', 'Qq\QqAuthController@qqLogin');
+Route::get('/authqq/callback', 'Qq\QqAuthController@qqCallBack');

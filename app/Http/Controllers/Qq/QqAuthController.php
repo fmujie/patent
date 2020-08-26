@@ -12,14 +12,15 @@ class QqAuthController extends Controller
     {
         return 456;
     }
-    public function qq()
+    public function qqLogin()
     {
         return Socialite::with('qq')->redirect();
     }
 
-    public function qq_callback()
+    public function qqCallBack()
     {
         $oauthUser = Socialite::with('qq')->user();
+        dd($oauthUser);
 
         $data = [
             'nickname' => $oauthUser->getNickname(),

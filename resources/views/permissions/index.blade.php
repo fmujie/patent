@@ -5,11 +5,11 @@
 
 @section('content')
 
-<div class="col-lg-10 col-lg-offset-1">
+<div class="m-auto col-lg-10 col-lg-offset-1">
     <h1><i class="fa fa-key"></i>Available Permissions
 
-    <a href="{{ route('users.index') }}" class="btn btn-default pull-right">Users</a>
-    <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a></h1>
+    <a href="{{ route('users.index') }}" class="btn float-right btn-outline-info ml-4">Users</a>
+    <a href="{{ route('roles.index') }}" class="btn float-right btn-outline-info">Roles</a></h1>
     <hr>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
@@ -24,7 +24,7 @@
                 @foreach ($permissions as $permission)
                 <tr>
                     <td>{{ $permission->name }}</td> 
-                    <td>
+                    <td style="display: flex">
                     <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
 
                     {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id] ]) !!}

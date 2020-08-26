@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class='col-lg-4 col-lg-offset-4'>
+<div class='m-auto col-lg-4 col-lg-offset-4'>
 
     <h1><i class='fa fa-user-plus'></i> Edit {{$user->name}}</h1>
     <hr>
