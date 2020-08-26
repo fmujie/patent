@@ -66,11 +66,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
-                                <div>
-                                    <a href="{{url('/qq')}}">
-                                        <img src="{{ asset('images/qq_bt_blue.png') }}" alt="使用QQ登录">
-                                    </a>
-                                </div>
+                                <a href="{{url('/qqlogin')}}" class="btn btn-primary">Login with
+                                    <img src="{{ asset('images/qq_white32.png') }}" width="21px" alt="使用QQ登录">
+                                </a>
                             </div>
                         </div>
                     </form>

@@ -56,17 +56,14 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                <a href="{{url('/qqlogin')}}" class="btn btn-primary">Login with
+                                    <img src="{{ asset('images/qq_white32.png') }}" width="21px" alt="使用QQ登录">
+                                </a>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                                <div>
-                                    <a href="{{url('/qq')}}">
-                                        <img src="{{ asset('images/qq_bt_blue.png') }}" alt="使用QQ登录">
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </form>
