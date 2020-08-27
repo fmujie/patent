@@ -66,11 +66,17 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
-                                <a href="{{url('/qqlogin')}}" class="btn btn-primary">Login with
-                                    <img src="{{ asset('images/qq_white32.png') }}" width="21px" alt="使用QQ登录">
-                                </a>
                                 <a href="{{url('/login/github')}}" class="btn btn-primary">
                                     <img src="{{ asset('images/github32.png') }}" width="21px" alt="使用GitHub登录">
+                                </a>
+                                <a href="{{url('/login/google')}}" class="btn btn-primary">
+                                    <img src="{{ asset('images/google32.png') }}" width="25px" alt="使用Google登录">
+                                </a>
+                                <a href="{{url('/login/qq')}}" class="btn btn-primary">
+                                    <img src="{{ asset('images/qq_white32.png') }}" width="21px" alt="使用QQ登录">
+                                </a>
+                                <a href="{{url('/login/weibo')}}" class="btn btn-primary">
+                                    <img src="{{ asset('images/weibo32.png') }}" width="21px" alt="使用微博登录">
                                 </a>
                             </div>
                         </div>

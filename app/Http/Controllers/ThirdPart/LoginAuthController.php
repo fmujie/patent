@@ -17,13 +17,28 @@ class LoginAuthController extends Controller
     public function gitHubCallBack()
     {
         $oauthUser = Socialite::with('github')->user();
-        dd($oauthUser);
+        // dd($oauthUser);
 
-        $data = [
+        $datas = [
             'nickname' => $oauthUser->getNickname(),
             'avatar'   => $oauthUser->getAvatar(),
             'open_id'  => $oauthUser->getId(),
         ];
-        return $data;
+        dd($datas);
+        return $datas;
+    }
+
+    public function qqCallBack()
+    {
+        $oauthUser = Socialite::with('qq')->user();
+        // dd($oauthUser);
+
+        $datas = [
+            'nickname' => $oauthUser->getNickname(),
+            'avatar'   => $oauthUser->getAvatar(),
+            'open_id'  => $oauthUser->getId(),
+        ];
+        dd($datas);
+        return $datas;
     }
 }
