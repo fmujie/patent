@@ -16,6 +16,7 @@
         "overtrue/laravel-pinyin": "~4.0",
         "realrashid/sweet-alert": "^3.1",
         "simplesoftwareio/simple-qrcode": "~2",
+        "socialiteproviders/github": "^1.0",
         "socialiteproviders/qq": "^3.0",
         "spatie/laravel-permission": "^3.16",
         "wapmorgan/mp3info": "^0.0.5"

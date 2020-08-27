@@ -56,3 +56,6 @@ Route::middleware('throttle:60,1')->group(function () {
 Route::get('/test', 'TestController@test');
 Route::get('/qqlogin', 'Qq\QqAuthController@qqLogin');
 Route::get('/authqq/callback', 'Qq\QqAuthController@qqCallBack');
+
+Route::get('/login/{thirdPart}', 'ThirdPart\LoginAuthController@thirdLogin');
+Route::get('/auth/callback', 'ThirdPart\LoginAuthController@gitHubCallBack');
