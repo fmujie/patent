@@ -108,7 +108,7 @@
             </div>
         </div>
     </div>
-    @include('sweet::alert')
+    @include('sweetalert::alert')
 </body>
 
 </html>

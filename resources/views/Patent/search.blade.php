@@ -486,7 +486,7 @@
             </div>
         </div>
     </div>
-    @include('sweet::alert')
+    @include('sweetalert::alert')
     <script src="js/patentSearch.js"></script>
 </body>
 

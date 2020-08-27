@@ -59,6 +59,9 @@
                                 <a href="{{url('/qqlogin')}}" class="btn btn-primary">Login with
                                     <img src="{{ asset('images/qq_white32.png') }}" width="21px" alt="使用QQ登录">
                                 </a>
+                                <a href="{{url('/githublogin')}}" class="btn btn-primary">
+                                    <img src="{{ asset('images/github32.png') }}" width="21px" alt="使用GitHub登录">
+                                </a>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}

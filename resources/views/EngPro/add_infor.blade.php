@@ -64,6 +64,6 @@
         </div>
       </form>
     </div>
-@include('sweet::alert')
+    @include('sweetalert::alert')
 </body>
 </html>

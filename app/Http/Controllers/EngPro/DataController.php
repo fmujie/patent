@@ -19,7 +19,7 @@ class DataController extends Controller
 
     public function addInforView()
     {
-        return view('EngPro/add_infor');
+        return view('EngPro.add_infor');
     }
 
     public function addData(Request $request)
@@ -33,8 +33,8 @@ class DataController extends Controller
             $ret = $validator->errors();
             $checkAbbreRes = $ret->get('abbre');
             
-            Alert::warning($checkAbbreRes[0], '提交格式有误');
-            return view('EngPro/add_infor');
+            Alert::warning('提交格式有误', $checkAbbreRes[0])->autoClose(2500);
+            return view('EngPro.add_infor');
         }
 
         $abbre = $request->abbre;
@@ -76,7 +76,7 @@ class DataController extends Controller
         if (!$datas->count()) {
             Alert::info("Didn't find any information");
         }
-        return view('EngPro/show_infor', ['datas' => $datas]);
+        return view('EngPro.show_infor', ['datas' => $datas]);
     }
 
     public function showPage($page_address)
@@ -97,8 +97,10 @@ class DataController extends Controller
         $durationTime = $audio->duration;
         $abbre = $data->abbre;
         $intro = $data->intro;
-
-        return view('EngPro/show_page', [
+        toast('Click the play button to start','info')
+        ->hideCloseButton()->autoClose(2000)
+        ->position('top')->timerProgressBar()->width('400px');
+        return view('EngPro.show_page', [
             'abbre' => $abbre,
             'intro' => $intro,
             'audio_path' => $audio_path,

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Alert;
 
 class TestController extends Controller
 {
@@ -12,8 +13,12 @@ class TestController extends Controller
      */
      public function test()
      {
-         return 123;
-         return view('test');
+         // Alert::warning('Warning Title', 'Warning Message');
+        // Alert::question('Question Title', 'Question Message');
+        // Alert::toast('Toast Message', 'Toast Type');
+        toast('Your Post as been submited!','success');
+        // toast('Success Toast','info')->autoClose(2500)->position('top');
+        return view('test');
      }
  
       /**
