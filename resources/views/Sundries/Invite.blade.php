@@ -137,6 +137,6 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 		</div>
 	</div>
 	<div style="text-align:center;clear:both"></div>
-@include('sweet::alert')
+	@include('sweetalert::alert')
 </body>
 </html>

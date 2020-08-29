@@ -16,7 +16,7 @@ class InviteController extends Controller
 
     public function inviteView($type = 0) {
         $this->userData($type);
-        return view("sundries/invite", ['user_data' => $this->user_data, 'type' => $type]);
+        return view("sundries.invite", ['user_data' => $this->user_data, 'type' => $type]);
     }
 
     public function inviteData(Request $request) {
@@ -30,7 +30,7 @@ class InviteController extends Controller
             $checkEmailRes = $ret->get('user_email');
             
             Alert::warning($checkEmailRes[0], '提交格式有误');
-            return view('sundries/invite', ['user_data' => '']);
+            return view('sundries.invite', ['user_data' => '']);
         }
 
         Alert::success('Success Message', 'Optional Title');
@@ -46,7 +46,7 @@ class InviteController extends Controller
         } else {
             Alert::error('提交失败', 'Submission Failed');
         }
-        return view('sundries/invite');
+        return view('sundries.invite');
     }
 
     public function userData($type) {
