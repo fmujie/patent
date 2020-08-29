@@ -5,8 +5,10 @@ namespace App\Http\Controllers\ThirdPart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
-use User;
+use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class LoginAuthController extends Controller
 {
