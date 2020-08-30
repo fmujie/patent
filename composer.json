@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "dingo/api": "^2.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
@@ -19,6 +20,7 @@
         "socialiteproviders/github": "^1.0",
         "socialiteproviders/qq": "^3.0",
         "spatie/laravel-permission": "^3.16",
+        "tymon/jwt-auth": "^1.0",
         "wapmorgan/mp3info": "^0.0.5"
     },
     "require-dev": {
