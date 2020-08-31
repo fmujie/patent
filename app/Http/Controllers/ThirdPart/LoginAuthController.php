@@ -47,7 +47,7 @@ class LoginAuthController extends Controller
         return $datas;
     }
 
-    public function weibo_callback()
+    public function weiboCallBack()
     {
         $oauthUser = Socialite::with('weibo')->user();
 
