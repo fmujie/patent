@@ -61,18 +61,9 @@ class LoginAuthController extends Controller
         return $datas;
     }
 
-    public function thirdPartCallBack(Request $request)
+    public function thirdPartCallBack($thirdPartAuth)
     {
-        $uri = $request->getRequestUri();
-        $thirdAuthName = $this->cut_str($uri, '/', 1);
-        if($thirdAuthName) {
-            $thirdPartName = substr($thirdAuthName, 4);
-        } else {
-            return response()->json([
-                'error' => 'The request callback address is incorrect'
-            ], );
-        }
-
+        $thirdPartName = substr($thirdPartAuth, 4);
         $oauthUser = Socialite::with("$thirdPartName")->user();
         dd($oauthUser);
 
@@ -110,5 +101,20 @@ class LoginAuthController extends Controller
                 return $array[$number];
             }
         }
+    }
+
+    public function abandoned(Request $request)
+    {
+        $uri = $request->getRequestUri();
+        $thirdAuthName = $this->cut_str($uri, '/', 1);
+        if($thirdAuthName) {
+            $thirdPartName = substr($thirdAuthName, 4);
+        } else {
+            return response()->json([
+                'error' => 'The request callback address is incorrect'
+            ], );
+        }
+
+        dd($thirdPartAuth);
     }
 }

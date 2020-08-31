@@ -56,7 +56,7 @@ Route::middleware('throttle:60,1')->group(function () {
 Route::get('/test', 'TestController@test');
 
 Route::get('/login/{thirdPart}', 'ThirdPart\LoginAuthController@thirdLogin');
-Route::get('/auth/callback', 'ThirdPart\LoginAuthController@gitHubCallBack');
+// Route::get('/auth/callback', 'ThirdPart\LoginAuthController@gitHubCallBack');
 // Route::get('/authqq/callback', 'ThirdPart\LoginAuthController@qqCallBack');
 // Route::get('/authweibo/callback', 'ThirdPart\LoginAuthController@weiboCallBack');
 Route::get('/{thirdPartAuth}/callback', 'ThirdPart\LoginAuthController@thirdPartCallBack');
