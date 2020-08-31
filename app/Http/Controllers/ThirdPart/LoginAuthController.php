@@ -37,7 +37,19 @@ class LoginAuthController extends Controller
     public function qqCallBack()
     {
         $oauthUser = Socialite::with('qq')->user();
-        // dd($oauthUser);
+
+        $datas = [
+            'nickname' => $oauthUser->getNickname(),
+            'avatar'   => $oauthUser->getAvatar(),
+            'open_id'  => $oauthUser->getId(),
+        ];
+        dd($datas);
+        return $datas;
+    }
+
+    public function weibo_callback()
+    {
+        $oauthUser = \Socialite::with('weibo')->user();
 
         $datas = [
             'nickname' => $oauthUser->getNickname(),
