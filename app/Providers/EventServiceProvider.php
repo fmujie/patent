@@ -20,8 +20,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             // ... other providers
-            'SocialiteProviders\QQ\QqExtendSocialite@handle',
-            'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle',
+            'SocialiteProviders\QQ\QqExtendSocialite@handle', // QQ登录
+            'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle', // GitHub登录
+            'SocialiteProviders\Weibo\WeiboExtendSocialite@handle', // 微博登录
         ],
     ];
 
