@@ -28,7 +28,7 @@ $api->version('v1', [
         $api->post('logout', 'Auth\AuthController@logout');
         $api->post('refresh', 'Auth\AuthController@refresh');
         $api->post('me', 'Auth\AuthController@me');
-
+        $api->post('socials/{social_type}/authorizations', 'Auth\SocialAuthController@socialStore')->name('api.socials.authorizations.store'); // 第三方登录
     });
     $api->get('/test', 'TestController@index');
     // $api->post('/login', 'Auth\AuthController@login');
