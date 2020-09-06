@@ -25,7 +25,7 @@
 
     @font-face {
         font-family: 'ysyrxk';
-        src: url('{{ asset('./font/ysyrxk.ttf') }}');
+        src: url('{{ asset('./font/HanBiaoBangYangMaoBiPinYin-2.ttf') }}');
         font-weight: normal;
         font-style: normal;
     }
