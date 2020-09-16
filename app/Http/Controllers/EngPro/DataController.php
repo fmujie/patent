@@ -53,9 +53,10 @@ class DataController extends Controller
         $qr_path = $this->genQR($pyStrRes);
         $page_address = '/' .$pyStrRes;
 
+        $trans = $request->trans;
         $res = DB::table('data')->insert(
             [
-                'abbre' => $abbre, 'intro' => $intro,
+                'abbre' => $abbre, 'intro' => $intro, 'trans' => $trans,
                 'audio_path' => $audio_path, 'qr_path' => $qr_path,
                 'page_address' => $page_address, 'created_at' => date("Y-m-d G:i:s")
             ]
@@ -97,6 +98,10 @@ class DataController extends Controller
         $durationTime = $audio->duration;
         $abbre = $data->abbre;
         $intro = $data->intro;
+        $trans = $data->trans;
+        if (!$trans) {
+            $trans = '暂无释义';
+        }
         toast('Click the play button to start','info')
         ->hideCloseButton()->autoClose(2000)
         ->position('top')->timerProgressBar()->width('400px');
@@ -104,7 +109,8 @@ class DataController extends Controller
             'abbre' => $abbre,
             'intro' => $intro,
             'audio_path' => $audio_path,
-            'duration_time' => $durationTime
+            'duration_time' => $durationTime,
+            'trans' => $trans
         ]);
     }
 

@@ -112,7 +112,7 @@ class LoginAuthController extends Controller
         } else {
             return response()->json([
                 'error' => 'The request callback address is incorrect'
-            ], );
+            ]);
         }
 
         dd($thirdPartAuth);

@@ -34,9 +34,12 @@
         font-family: 'ysyrxk'!important;
         font-size: 25px;
     }
-    .card-title {
+    .card-title, .ChineseInfor {
         font-family: 'ysyrxk'!important;
         font-size: 30px;
+    }
+    pre {
+        white-space: pre-wrap;
     }
   </style>
 </head>
@@ -53,14 +56,43 @@
                 </div>
             </div>
             <div class="card-body">
-                <div id="introContain" style="text-indent: 2em;"></div>
+                <pre id="introContain" style="text-indent: 2em;"></pre>
             </div> 
             <div class="card-footer">
-                <a href="#" class="card-link">Card link</a>
+                {{-- <a href="#" class="card-link">Card link</a> --}}
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    点此查看释义
+                </button>
                 <span id="curIntro" style="display: none"> {{ $intro }} </span>
                 <span id="durationTime" style="display:none"> {{ $duration_time }} </span>
             </div>
         </div>
+           
+          <!-- 模态框 -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+           
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                  <h4 class="modal-title">中文释义</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+           
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                  <pre class="ChineseInfor">{{ $trans }}</pre>
+                </div>
+           
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+           
+              </div>
+            </div>
+          </div>
+        
     </div>
     <div class="content"></div>
 <script>

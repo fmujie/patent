@@ -54,6 +54,8 @@
           <input type="text" class="form-control" id="abbre" name="abbre" placeholder="Please enter abbreviation" required />
         <label for="content">内容:</label>
           <textarea class="form-control" rows="5" id="content" name="intro" placeholder="Please enter details" required></textarea>
+        <label for="trans">释义:</label>
+          <textarea class="form-control" rows="5" id="trans" name="trans" placeholder="Please enter trans"></textarea>
         <p>上传音频文件:</p>
         <div class="custom-file mb-3">
           <input type="file" class="custom-file-input" id="audioFile" name="audioFile" required>
