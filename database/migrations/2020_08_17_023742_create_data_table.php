@@ -17,6 +17,7 @@ class CreateDataTable extends Migration
             $table->bigIncrements('id');
             $table->string('abbre');
             $table->text('intro');
+            $table->text('trans')->nullable();
             $table->string('audio_path');
             $table->string('qr_path');
             $table->string('page_address');

@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <pre id="introContain" style="text-indent: 2em;"></pre>
+                <pre id="introContain"></pre>
             </div> 
             <div class="card-footer">
                 {{-- <a href="#" class="card-link">Card link</a> --}}
