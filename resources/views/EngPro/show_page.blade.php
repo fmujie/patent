@@ -30,12 +30,19 @@
         font-style: normal;
     }
 
+    @font-face {
+        font-family: 'xbs';
+        src: url('{{ asset('./font/xbs.OTF') }}');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     #introContain {
-        font-family: 'ysyrxk'!important;
+        font-family: 'xbs';
         font-size: 25px;
     }
     .card-title, .ChineseInfor {
-        font-family: 'ysyrxk'!important;
+        font-family: 'ysyrxk';
         font-size: 30px;
     }
     pre {
@@ -60,9 +67,10 @@
             </div> 
             <div class="card-footer">
                 {{-- <a href="#" class="card-link">Card link</a> --}}
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button id="explbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                     点此查看释义
                 </button>
+                <span id="iflan" style="display: none">{{ $lan }}</span>
                 <span id="curIntro" style="display: none"> {{ $intro }} </span>
                 <span id="durationTime" style="display:none"> {{ $duration_time }} </span>
             </div>
@@ -95,31 +103,7 @@
         
     </div>
     <div class="content"></div>
-<script>
-    $(document).ready(function () {
-        let introContain = document.querySelector('#introContain')
-        let introText = $("#curIntro").html()
-        let durationTime = $("#durationTime").html()
-        let data = introText.split('')
-        let index = 0
-        let interval = (parseFloat(durationTime) * 1000) / data.length
-        function writing() {
-            var audio = document.getElementById('audio_element');
-            if (!audio.paused && index < data.length) {
-                introContain.innerHTML += data[index]
-                setTimeout(writing.bind(this), interval, ++index)
-            }
-        }
-
-        $('audio').bind('play', function(){
-		    writing()
-	    })
-        $('audio').bind('pause', function(){
-            writing(index)
-	    })
-	
-    });
-</script>
+<script src="{{ asset('js/engpro/engpro.js') }}"></script>
 @include('sweetalert::alert')
 </body>
 </html>

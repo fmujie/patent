@@ -37,6 +37,7 @@ class DataController extends Controller
             return view('EngPro.add_infor');
         }
 
+        $lan = $_POST['optradio'];
         $abbre = $request->abbre;
         $intro = $request->intro;
         $pyStrRes = implode("_", Pinyin::convert($abbre));
@@ -56,8 +57,8 @@ class DataController extends Controller
         $trans = $request->trans;
         $res = DB::table('data')->insert(
             [
-                'abbre' => $abbre, 'intro' => $intro, 'trans' => $trans,
-                'audio_path' => $audio_path, 'qr_path' => $qr_path,
+                'abbre' => $abbre, 'lan' => $lan, 'intro' => $intro,
+                'trans' => $trans, 'audio_path' => $audio_path, 'qr_path' => $qr_path,
                 'page_address' => $page_address, 'created_at' => date("Y-m-d G:i:s")
             ]
         );
@@ -99,6 +100,7 @@ class DataController extends Controller
         $abbre = $data->abbre;
         $intro = $data->intro;
         $trans = $data->trans;
+        $lan = $data->lan;
         if (!$trans) {
             $trans = '暂无释义';
         }
@@ -110,7 +112,8 @@ class DataController extends Controller
             'intro' => $intro,
             'audio_path' => $audio_path,
             'duration_time' => $durationTime,
-            'trans' => $trans
+            'trans' => $trans,
+            'lan' => $lan
         ]);
     }
 

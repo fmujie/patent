@@ -52,6 +52,9 @@
         @csrf
         <label for="abbre">简称:</label>
           <input type="text" class="form-control" id="abbre" name="abbre" placeholder="Please enter abbreviation" required />
+        <label class="radio-inline"><input type="radio" name="optradio" value="ch" checked>Is Chinese?</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="en">Is English?</label>
+        <br/>
         <label for="content">内容:</label>
           <textarea class="form-control" rows="5" id="content" name="intro" placeholder="Please enter details" required></textarea>
         <label for="trans">释义:</label>

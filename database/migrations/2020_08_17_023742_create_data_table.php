@@ -16,6 +16,7 @@ class CreateDataTable extends Migration
         Schema::create('data', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('abbre');
+            $table->string('lan');
             $table->text('intro');
             $table->text('trans')->nullable();
             $table->string('audio_path');
