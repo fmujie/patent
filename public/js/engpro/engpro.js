@@ -5,11 +5,12 @@ $(document).ready(function () {
     let introText = $("#curIntro").html()
     let durationTime = $("#durationTime").html()
     let lan = $("#iflan").html()
-    console.log(lan)
+    // console.log(lan)
     if (lan == 'ch') {
         disbtn()
         $("#introContain").css('font-family', "ysyrxk")
-        console.log($("#introContain").css('font-family'))
+        $("#introContain").css('text-indent', "2em")
+        // console.log($("#introContain").css('text-indent'))
     }
     let data = introText.split('')
     let index = 0
