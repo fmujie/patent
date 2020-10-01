@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\ExcelExport\Recruit;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -42,7 +43,7 @@ class RecruitExport implements FromQuery, ShouldAutoSize, WithColumnWidths, With
                                         'part_1', 'part_2', 'introduction')
                                 ->where('part_1', $this->departmentId)
                                 ->orWhere('part_2', $this->departmentId)
-                                ->orderby(\DB::raw('FIND_IN_SET(part_1, "' . implode(",", $this->orderList) . '"' . ")"));
+                                ->orderby(DB::raw('FIND_IN_SET(part_1, "' . implode(",", $this->orderList) . '"' . ")"));
     }
 
     public function columnWidths(): array
