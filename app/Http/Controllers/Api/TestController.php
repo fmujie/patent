@@ -15,8 +15,8 @@ class TestController extends Controller
         return $user;
     }
 
-    public function tesst()
+    public function test()
     {
-        
+        return 123;
     }
 }

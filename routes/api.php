@@ -21,7 +21,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
-    'middleware' => ['bindings'], //添加这个中间件才能使用模型绑定
+    'middleware' => ['bindings', 'cors'], //添加这个中间件才能使用模型绑定
 ], function ($api) {
     $api->group(['middleware' => 'api', 'prefix' => 'auth'], function ($api) {
         $api->post('login', 'Auth\AuthController@login');
@@ -30,7 +30,7 @@ $api->version('v1', [
         $api->post('me', 'Auth\AuthController@me');
         $api->post('socials/{social_type}/authorizations', 'Auth\SocialAuthController@socialStore')->name('api.socials.authorizations.store'); // 第三方登录
     });
-    $api->get('/test', 'TestController@index');
+    $api->get('/test', 'TestController@test');
     // $api->post('/login', 'Auth\AuthController@login');
 });
 

@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth', 'permission:View Patent']], function () {
 Route::group(['middleware' => ['auth', 'role:Administer']], function () {
     Route::get('/sundries/invite/{type}', 'Sundries\InviteController@inviteView');
     Route::any('/sundries/invite/post', 'Sundries\InviteController@inviteData');
+    // 导出纳新名单
+    Route::get('/export/{grad}/{departmentId}', 'ExcelExport\RecruitController@export');
 });
 
 Route::prefix('engpro')->group(function () {
