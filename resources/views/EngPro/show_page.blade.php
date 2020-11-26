@@ -44,6 +44,7 @@
     .card-title, .ChineseInfor {
         font-family: 'ysyrxk';
         font-size: 30px;
+        text-align: center;
     }
     pre {
         white-space: pre-wrap;
