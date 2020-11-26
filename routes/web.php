@@ -62,3 +62,21 @@ Route::get('/login/{thirdPart}', 'ThirdPart\LoginAuthController@thirdLogin');
 // Route::get('/authqq/callback', 'ThirdPart\LoginAuthController@qqCallBack');
 // Route::get('/authweibo/callback', 'ThirdPart\LoginAuthController@weiboCallBack');
 Route::get('/{thirdPartAuth}/callback', 'ThirdPart\LoginAuthController@thirdPartCallBack');
+
+Route::prefix('recruit')->group(function () {
+    Route::prefix('qus')->group(function () {
+        Route::get('/desview', 'Recruit\QusDesController@index');
+        Route::post('/dsplt', 'Recruit\QusDesController@dsTplt');
+        Route::get('/viewgp', 'Recruit\QusDesController@viewGp');
+        Route::get('/viewgp/info/{qusGpId?}', 'Recruit\QusDesController@viewOGpInfo');
+        Route::patch('/update/gpsk/{qusId?}', 'Recruit\QusDesController@updateQus');
+        Route::patch('/update/sel/{qusId?}', 'Recruit\QusDesController@updateQus');
+        Route::post('/addqus/{qusGpId?}', 'Recruit\QusDesController@addQus');
+        Route::get('/delete/{qusId?}', 'Recruit\QusDesController@deleteQus');
+    });
+    Route::prefix('exam')->group(function () {
+        Route::get('/qusview', 'Recruit\ExamController@index');
+    });
+    Route::get('/login', 'Recruit\LogRegController@index');
+    Route::get('/perinfor/{rUserId}', 'Recruit\PerInforController@index');
+});

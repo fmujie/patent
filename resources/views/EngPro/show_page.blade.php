@@ -48,6 +48,11 @@
     pre {
         white-space: pre-wrap;
     }
+    .card-body {
+        background-repeat: repeat;
+        background-position: center center;
+        background-attachment:fixed;
+    }
   </style>
 </head>
 <body>
@@ -62,11 +67,10 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body">
-                <pre id="introContain"></pre>
+            <div class="card-body" style="background-image: url({{asset('images/bglove.jpg')}});">
+                <pre id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer">
-                {{-- <a href="#" class="card-link">Card link</a> --}}
                 <button id="explbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                     点此查看释义
                 </button>

@@ -17,6 +17,7 @@
         "maatwebsite/excel": "^3.1",
         "overtrue/laravel-pinyin": "~4.0",
         "realrashid/sweet-alert": "^3.1",
+        "renatomarinho/laravel-page-speed": "^1.9",
         "simplesoftwareio/simple-qrcode": "~2",
         "socialiteproviders/github": "^1.0",
         "socialiteproviders/qq": "^3.0",
