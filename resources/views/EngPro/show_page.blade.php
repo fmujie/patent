@@ -56,6 +56,12 @@
         background-attachment:fixed;
         padding: 0rem !important;
     }
+    .card-header {
+        padding: .1rem .1rem !important;
+    }
+    .card-title {
+        margin-bottom: 0rem !important;
+    }
      #fire {
         position: absolute;
         z-index: -100;
@@ -1105,13 +1111,13 @@
         <div class="card" style="background-color: rgba(255, 255, 255, 0.50);">
             <div class="card-header">
                 <div style="display: flex;flex-direction:row;justify-content:space-between;">
-                    <h4 class="card-title">{{ $abbre }}</h4>
-                    <audio id="audio_element" controls>
+                    <h5 class="card-title">{{ $abbre }}</h5>
+                    <audio id="audio_element" style="opacity: 0.5; width: 225px;" controls>
                         <source src="{{ env('APP_URL').$audio_path }}">
                     </audio>
                 </div>
             </div>
-            <div class="card-body" style="height:328px; position: relative; overflow:hidden;overflow-y: scroll;">
+            <div class="card-body" style="height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
                 <img class="bglove" src="{{asset('images/bglove.jpg')}}" style="position: fixed; z-index: -10" alt="">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
