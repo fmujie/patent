@@ -1111,7 +1111,7 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" style="height:320px; position: relative; overflow:hidden;overflow-y: scroll;">
+            <div class="card-body" style="height:328px; position: relative; overflow:hidden;overflow-y: scroll;">
                 <img class="bglove" src="{{asset('images/bglove.jpg')}}" style="position: fixed; z-index: -10" alt="">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
