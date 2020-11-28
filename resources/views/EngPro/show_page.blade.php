@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('css/yanHua.css') }}">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -53,13 +54,1055 @@
         background-repeat: repeat;
         background-position: center center;
         background-attachment:fixed;
+        padding: 0rem !important;
     }
+     #fire {
+        position: absolute;
+        z-index: -100;
+        }
+    .modal-backdrop {
+        display: none;
+    }
+    .bglove {
+        opacity: 0.5;
+        width: 100%;
+        /* height: 100%; */
+        background-repeat：repeat;
+    }
+
+    /* 滚动条样式设置 */
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        -webkit-box-shadow: inset 0 0 6px rgba(112, 200, 241, 0.3);
+        background-color: #555;
+    }
+    /* 滚动条样式设置 */
   </style>
 </head>
 <body>
-
+    <!-- partial:index.partial.html -->
+    <div id="fire" class="camera -x">
+        <div class="camera -y">
+        <div class="camera -z">
+            <div class="fireworks">
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            <div class="line">
+                <div class="spark">
+                <div class="fire"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- partial -->
     <div class="container">
-        <div class="card">
+        <div class="card" style="background-color: rgba(255, 255, 255, 0.50);">
             <div class="card-header">
                 <div style="display: flex;flex-direction:row;justify-content:space-between;">
                     <h4 class="card-title">{{ $abbre }}</h4>
@@ -68,8 +1111,9 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" style="background-image: url({{asset('images/bglove.jpg')}});">
-                <pre id="introContain" style="color: #fff;"></pre>
+            <div class="card-body" style="height:320px; position: relative; overflow:hidden;overflow-y: scroll;">
+                <img class="bglove" src="{{asset('images/bglove.jpg')}}" style="position: fixed; z-index: -10" alt="">
+                <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer">
                 <button id="explbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
