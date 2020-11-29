@@ -9,7 +9,8 @@ $(document).ready(function () {
     if (lan == 'ch') {
         disbtn()
         $("#introContain").css('font-family', "ysyrxk")
-        $("#introContain").css('text-indent', "2em")
+        $("#introContain").css('font-size', "28px")
+        // $("#introContain").css('text-indent', "2em")
         // console.log($("#introContain").css('text-indent'))
     }
     let data = introText.split('')

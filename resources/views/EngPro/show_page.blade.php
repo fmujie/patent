@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ asset('css/yanHua.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('css/yanHua.css') }}"> --}}
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -37,7 +37,6 @@
         font-weight: normal;
         font-style: normal;
     }
-
     #introContain {
         font-family: 'xbs';
         font-size: 25px;
@@ -49,11 +48,12 @@
     }
     pre {
         white-space: pre-wrap;
+        margin-bottom: 0rem !important;
     }
     .card-body {
         background-repeat: repeat;
         background-position: center center;
-        background-attachment:fixed;
+        /* background-attachment:fixed; */
         padding: 0rem !important;
     }
     .card-header {
@@ -75,19 +75,16 @@
         /* height: 100%; */
         background-repeat：repeat;
     }
-
     /* 滚动条样式设置 */
     ::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
         border-radius: 5px;
         background-color: #F5F5F5;
     }
-
     ::-webkit-scrollbar {
         width: 5px;
         background-color: #F5F5F5;
     }
-
     ::-webkit-scrollbar-thumb {
         border-radius: 5px;
         -webkit-box-shadow: inset 0 0 6px rgba(112, 200, 241, 0.3);
@@ -98,7 +95,7 @@
 </head>
 <body>
     <!-- partial:index.partial.html -->
-    <div id="fire" class="camera -x">
+    {{-- <div id="fire" class="camera -x">
         <div class="camera -y">
         <div class="camera -z">
             <div class="fireworks">
@@ -1105,7 +1102,7 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> --}}
     <!-- partial -->
     <div class="container">
         <div class="card" style="background-color: rgba(255, 255, 255, 0.50);">
@@ -1117,8 +1114,8 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" style="height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
-                <img class="bglove" src="{{asset('images/bglove.jpg')}}" style="position: fixed; z-index: -10" alt="">
+            <div class="card-body" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
+                {{-- <img class="bglove" src="{{asset('images/bglove.jpg')}}" style="position: fixed; z-index: -10" alt=""> --}}
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer">
