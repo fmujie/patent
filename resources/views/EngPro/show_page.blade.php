@@ -9,11 +9,12 @@
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+    {{-- video --}}
+    <script src="{{ asset('js/videoJs/modernizr.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/videoCss/normalize.css') }}" /><!--CSS RESET-->
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/videoCss/demo.css') }}"><!--演示页面样式，使用时可以不引用--> --}}
+    <link href="{{ asset('css/videoCss/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/videoCss/style.css') }}">
   <style>
     #introContain::after{
         content: '|';
@@ -1115,7 +1116,7 @@
     </div> --}}
     <!-- partial -->
     <div class="container">
-        <div class="card" style="background-color: rgba(255, 255, 255, 0.50);">
+        <div class="card mt-1" style="background-color: rgba(255, 255, 255, 0.50);">
             <div class="card-header">
                 <div style="display: flex;flex-direction:row;justify-content:space-between;">
                     <h5 class="card-title">{{ $abbre }}</h5>
@@ -1125,12 +1126,11 @@
                 </div>
             </div>
             <div class="card-body" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
-                {{-- <img class="bglove" src="{{asset('images/bglove.jpg')}}" style="position: fixed; z-index: -10" alt=""> --}}
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer">
                 <button id="explbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    点此查看释义
+                    亮了点我
                 </button>
                 <span id="iflan" style="display: none">{{ $lan }}</span>
                 <span id="curIntro" style="display: none"> {{ $intro }} </span>
@@ -1162,7 +1162,7 @@
               </div>
             </div>
           </div>
-          <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel" style="height: 200px;">
+          {{-- <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel" style="height: 200px;">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -1184,23 +1184,38 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div>
-          <div class="bs-example mt-3">
-            {{-- <div class="alert alert-info alert-dismissible fade show">
-                <strong>Note!</strong> Open the output in a new blank tab (click the arrow button next to "Show Output") and resize the browser window to see how responsive videos work.
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-            </div> --}}
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YE7VzlLtp-4"></iframe>
-            </div>
-            {{-- <h2 class="mt-4">Video with 4:3 aspect ratio</h2>
-            <div class="embed-responsive embed-responsive-4by3">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YE7VzlLtp-4"></iframe>
-            </div> --}}
-        </div>        
+          </div> --}}
+          <div class="wrapper mt-3">
+            <div class="js-video">
+                <video class="js-media" poster="{{ asset('video/sintel.jpg') }}">
+                      <source src="{{ asset('video/sintel.mp4') }}" type="video/mp4" />
+                    <p>你的浏览器不支持 HTML5 Video。</p>
+                </video>
+                <i data-playPause class="playPause fa fa-play ui-icon"><span></span></i>
+                <div class="ui">
+                  <div>
+                    <div data-progress class="progress">
+                      <div data-buffer class="progress-buffer"></div>
+                      <div data-time class="progress-time"></div>
+                    </div><!-- progress -->
+                  </div>
+                  <div>
+                    <span class="timeDisplay"><i data-currentTime>0:00</i> / <i data-duration>0:00</i></span>
+                  </div>
+                  <div>
+                    <i data-mute class="fa fa-volume-up ui-icon"></i>
+                  </div>
+                  <div>
+                    <div data-volume="100" class="volumeControl"><span class="ui-slider-handle"></span></div>
+                  </div>
+                </div><!-- ui -->
+                <i data-fullscreen class="fullscreen iconicfill-fullscreen" title="fullscreen"></i>
+            </div><!-- js-video -->
+        </div>
     </div>
     <div class="content"></div>
 <script src="{{ asset('js/engpro/engpro.js') }}"></script>
+<script src="{{ asset('js/videoJs/vedio.js') }}"></script>
 @include('sweetalert::alert')
 </body>
 </html>
