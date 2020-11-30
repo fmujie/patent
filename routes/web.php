@@ -47,7 +47,7 @@ Route::prefix('engpro')->group(function () {
     });
 });
 
-Route::middleware('throttle:60,1')->group(function () {
+Route::middleware(['auth', 'role:Administer', 'throttle:60,1'])->group(function () {
     Route::get('/engpro/{page_address}', 'EngPro\DataController@showPage'); 
 });
 

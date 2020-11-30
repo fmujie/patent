@@ -99,6 +99,7 @@
     /* 滚动条样式设置 */
     .carousel-inner div {
         height: 210px;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
     }
