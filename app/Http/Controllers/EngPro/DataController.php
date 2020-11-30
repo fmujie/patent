@@ -150,7 +150,8 @@ class DataController extends Controller
             'duration_time' => $durationTime,
             'trans' => $trans,
             'lan' => $lan,
-            'imgsArr' => $imgsArr
+            'imgsArr' => $imgsArr,
+            'video_path' => null
         ]);
     }
 

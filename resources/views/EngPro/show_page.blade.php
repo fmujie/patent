@@ -1189,6 +1189,7 @@
                 </a>
             </div>
         @endif
+        @if ($video_path)
           <div class="wrapper mt-3">
             <div class="js-video">
                 <video class="js-media" poster="{{ asset('video/sintel.jpg') }}">
@@ -1215,7 +1216,8 @@
                 </div><!-- ui -->
                 <i data-fullscreen class="fullscreen iconicfill-fullscreen" title="fullscreen"></i>
             </div><!-- js-video -->
-        </div>
+          </div>
+        @endif
     </div>
     <div class="content"></div>
 <script src="{{ asset('js/engpro/engpro.js') }}"></script>
