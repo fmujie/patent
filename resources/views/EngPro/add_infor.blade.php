@@ -66,7 +66,7 @@
         </div>
         <p>上传图片文件:</p>
         <div class="custom-file mb-3">
-          <input type="file" class="custom-file-input" id="imgFile" name="imgFile[]" multiple="multiple" required>
+          <input type="file" class="custom-file-input" id="imgFile" name="imgFile[]" multiple="multiple">
           <label class="custom-file-label" for="imgFile[]">选择文件</label>
         </div>
         <div class="mt-3">

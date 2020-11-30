@@ -81,19 +81,26 @@ class DataController extends Controller
 
         if ($res) {
             $currentDataId = DB::connection()->getPdo()->lastInsertId();
-            foreach($imgFilesArr as $key => $img_path) {
-                $imgInsertRes = DataImgModel::create([
-                    'data_id' => $currentDataId,
-                    'img_path' => $img_path
-                ]);;
-                if ($imgInsertRes) {
-                    toast('提交成功','success')
-                    ->autoClose(2500)
-                    ->position('top')->timerProgressBar();
-                } else {
-                    DataModel::delete($currentDataId);
-                    Alert::error('提交失败', 'Submission Failed');
+            if(!empty($imgFilesArr)) 
+            {
+                foreach($imgFilesArr as $key => $img_path) {
+                    $imgInsertRes = DataImgModel::create([
+                        'data_id' => $currentDataId,
+                        'img_path' => $img_path
+                    ]);;
+                    if ($imgInsertRes) {
+                        toast('提交成功','success')
+                        ->autoClose(2500)
+                        ->position('top')->timerProgressBar();
+                    } else {
+                        DataModel::delete($currentDataId);
+                        Alert::error('提交失败', 'Submission Failed');
+                    }
                 }
+            } else {
+                toast('提交成功','success')
+                ->autoClose(2500)
+                ->position('top')->timerProgressBar();
             }
         } else {
             Alert::error('提交失败', 'Submission Failed');
