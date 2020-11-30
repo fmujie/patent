@@ -64,6 +64,11 @@
           <input type="file" class="custom-file-input" id="audioFile" name="audioFile" required>
           <label class="custom-file-label" for="audioFile">选择文件</label>
         </div>
+        <p>上传图片文件:</p>
+        <div class="custom-file mb-3">
+          <input type="file" class="custom-file-input" id="imgFile" name="imgFile[]" multiple="multiple" required>
+          <label class="custom-file-label" for="imgFile[]">选择文件</label>
+        </div>
         <div class="mt-3">
           <button type="submit" class="btn btn-primary">提交</button>
         </div>

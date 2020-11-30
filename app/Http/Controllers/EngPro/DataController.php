@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\EngPro;
 
+
+use Alert;
+use Pinyin;
+use QrCode;
+use Validator;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use wapmorgan\Mp3Info\Mp3Info;
 use App\Models\EngPro\DataModel;
 use Illuminate\Support\Facades\DB;
-use Validator;
-use Alert;
 use App\Http\Requests\DataRequest;
-use QrCode;
-use Pinyin;
+use App\Models\EngPro\DataImgModel;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use wapmorgan\Mp3Info\Mp3Info;
 
 class DataController extends Controller
 {
@@ -43,14 +45,28 @@ class DataController extends Controller
         $pyStrRes = implode("_", Pinyin::convert($abbre));
 
         if ($request->hasFile('audioFile')) {
-            $file = $request->file('audioFile');
+            $audioFile = $request->file('audioFile');
         }
-        
-        $audio_path = $this->uploadFile($file);
+
+        $audio_path = $this->uploadFile($audioFile);
         if (!$audio_path) {
             Alert::error('音频文件上传失败');
             return view('EngPro/add_infor');
         }
+
+        $imgFilesArr = [];
+        if ($request->hasFile('imgFile')) {
+            $imgFiles = $request->file('imgFile');
+            foreach ($imgFiles as $key => $imgFile) {
+                $img_path = $this->uploadFile($imgFile);
+                if (!$img_path) {
+                    Alert::error('图片文件上传失败');
+                    return view('EngPro/add_infor');
+                }
+                array_push($imgFilesArr, $img_path);
+            }
+        }
+
         $qr_path = $this->genQR($pyStrRes);
         $page_address = '/' .$pyStrRes;
 
@@ -64,10 +80,25 @@ class DataController extends Controller
         );
 
         if ($res) {
-            Alert::success('提交成功', 'Submitted successfully');
+            $currentDataId = DB::connection()->getPdo()->lastInsertId();
+            foreach($imgFilesArr as $key => $img_path) {
+                $imgInsertRes = DataImgModel::create([
+                    'data_id' => $currentDataId,
+                    'img_path' => $img_path
+                ]);;
+                if ($imgInsertRes) {
+                    toast('提交成功','success')
+                    ->autoClose(2500)
+                    ->position('top')->timerProgressBar();
+                } else {
+                    DataModel::delete($currentDataId);
+                    Alert::error('提交失败', 'Submission Failed');
+                }
+            }
         } else {
             Alert::error('提交失败', 'Submission Failed');
         }
+
         return view('EngPro/add_infor');
     }
 
@@ -87,6 +118,11 @@ class DataController extends Controller
 
         $dataModel = new DataModel();
         $data = $dataModel->where('page_address', $strRes)->first();
+        $imgs = $data->imgs;
+        $imgsArr = [];
+        foreach ($imgs as $key => $value) {
+            array_push($imgsArr, $value->img_path);
+        }
 
         if (!$data) {
             return abort(404);
@@ -113,7 +149,8 @@ class DataController extends Controller
             'audio_path' => $audio_path,
             'duration_time' => $durationTime,
             'trans' => $trans,
-            'lan' => $lan
+            'lan' => $lan,
+            'imgsArr' => $imgsArr
         ]);
     }
 
@@ -138,24 +175,20 @@ class DataController extends Controller
          if (! $file->isValid()) {
             return false;
          }
- 
          // 2.是否符合文件类型 getClientOriginalExtension 获得文件后缀名
          $fileExtension = $file->getClientOriginalExtension();
-         if(! in_array($fileExtension, ['wav', 'mp3', 'm4a'])) {
+         if(! in_array($fileExtension, ['wav', 'mp3', 'm4a', 'jpg', 'png', 'webp'])) {
              return false;
          }
- 
          // 3.判断大小是否符合 2M
          $tmpFile = $file->getRealPath();
          if (filesize($tmpFile) >= 2048000) {
              return false;
          }
- 
          // 4.是否是通过http请求表单提交的文件
          if (! is_uploaded_file($tmpFile)) {
              return false;
          }
- 
          // 5.每天一个文件夹,分开存储, 生成一个随机文件名
          $fileName = date('Y_m_d').'/'.md5(time()) .mt_rand(0,9999).'.'. $fileExtension;
          if (Storage::disk($disk)->put($fileName, file_get_contents($tmpFile)) ){
