@@ -7,6 +7,7 @@ use Alert;
 use Pinyin;
 use QrCode;
 use Validator;
+use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
 use wapmorgan\Mp3Info\Mp3Info;
 use App\Models\EngPro\DataModel;
@@ -121,10 +122,17 @@ class DataController extends Controller
 
     public function showPage($page_address)
     {
+        // $agent = new Agent();
+        // if(!$agent->isMobile()) {
+        //     Alert::error('Please use mobile device to access');
+        //     return redirect()->back();
+        // }
+        
         $strRes = '/' . $page_address;
 
         $dataModel = new DataModel();
         $data = $dataModel->where('page_address', $strRes)->first();
+        $crtdt = $data->created_at->toDateTimeString();
         $imgs = $data->imgs;
         $imgsArr = [];
         foreach ($imgs as $key => $value) {
@@ -158,6 +166,7 @@ class DataController extends Controller
             'trans' => $trans,
             'lan' => $lan,
             'imgsArr' => $imgsArr,
+            'crtdt' => $crtdt,
             'video_path' => null
         ]);
     }

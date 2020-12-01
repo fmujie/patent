@@ -103,6 +103,9 @@
         background-repeat: no-repeat;
         background-position: center center;
     }
+    .card-footer {
+        padding: .55rem .25rem !important;
+    }
   </style>
 </head>
 <body>
@@ -1129,9 +1132,10 @@
             <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
-            <div class="card-footer">
+            <div class="card-footer" style="display: flex; flex-direction: row; justify-content: space-around;">
+                <span id="crtdt" class="text-secondary" style="padding-top: 9px;">{{ $crtdt }}</span>
                 <button id="explbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    亮了点我
+                    亮了就点我
                 </button>
                 <span id="iflan" style="display: none">{{ $lan }}</span>
                 <span id="curIntro" style="display: none"> {{ $intro }} </span>
