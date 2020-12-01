@@ -20,6 +20,7 @@ $(document).ready(function () {
         var audio = document.getElementById('audio_element');
         if (!audio.paused && index < data.length) {
             introContain.innerHTML += data[index]
+            $('#scroll_div').scrollTop( $('#scroll_div')[0].scrollHeight);
             setTimeout(writing.bind(this), interval, ++index)
         }
     }

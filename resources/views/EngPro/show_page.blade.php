@@ -1126,7 +1126,7 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
+            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer">
