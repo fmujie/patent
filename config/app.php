@@ -170,7 +170,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
-        Jenssegers\Agent\AgentServiceProvider::class,
+        // Jenssegers\Agent\AgentServiceProvider::class,
         /*
          * Application Service Providers...
          */
