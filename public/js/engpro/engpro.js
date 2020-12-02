@@ -15,6 +15,7 @@ $(document).ready(function () {
     }
     let data = introText.split('')
     let index = 0
+    console.log(durationTime)
     let interval = (parseFloat(durationTime) * 1000) / data.length
     function writing() {
         var audio = document.getElementById('audio_element');
