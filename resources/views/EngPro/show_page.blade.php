@@ -1129,7 +1129,7 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;">
+            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer" style="display: flex; flex-direction: row; justify-content: space-around;">
@@ -1150,7 +1150,7 @@
            
                 <!-- 模态框头部 -->
                 <div class="modal-header">
-                  <h4 class="modal-title">中文释义</h4>
+                  <h4 class="modal-title">原来是备注</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
            

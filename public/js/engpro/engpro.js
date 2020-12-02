@@ -61,6 +61,7 @@ $(document).ready(function () {
         index = 0
         this.isend = true
         ablebtn()
+        introContain.innerHTML = introText
     })
 
 });
