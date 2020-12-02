@@ -122,11 +122,11 @@ class DataController extends Controller
 
     public function showPage($page_address)
     {
-        // $agent = new Agent();
-        // if(!$agent->isMobile()) {
-        //     Alert::error('Please use mobile device to access');
-        //     return redirect()->back();
-        // }
+        $agent = new Agent();
+        if(!$agent->isMobile()) {
+            Alert::error('Please use mobile device to access');
+            return redirect()->back();
+        }
         $strRes = '/' . $page_address;
 
         $dataModel = new DataModel();
@@ -148,7 +148,7 @@ class DataController extends Controller
 
         $durationTime = $audio->duration;
         if ($page_address == 'dian_ge_ya') {
-            $durationTime = $durationTime - 2;   
+            $durationTime = $durationTime - 2.5;   
         }
         $abbre = $data->abbre;
         $intro = $data->intro;
