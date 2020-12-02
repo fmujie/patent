@@ -148,7 +148,7 @@ class DataController extends Controller
 
         $durationTime = $audio->duration;
         if ($page_address == 'dian_ge_ya') {
-            $durationTime = $durationTime - 2.5;   
+            $durationTime = $durationTime - 3.5; 
         }
         $abbre = $data->abbre;
         $intro = $data->intro;

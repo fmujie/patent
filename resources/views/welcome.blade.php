@@ -89,8 +89,8 @@
 
             <div class="links">
                 <a href="./search_view">search_view</a>
-                <a href="./engpro/add_infor_view">add_infor</a>
-                <a href="./engpro/show_info">show_info</a>
+                {{-- <a href="./engpro/add_infor_view">add_infor</a> --}}
+                {{-- <a href="./engpro/show_info">show_info</a> --}}
                 <a href="./sundries/invite/0">invite</a>
                 <a href="./recruit/qus/desview">qusDes</a>
             </div>
