@@ -1129,8 +1129,8 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/bglove.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
-                <pre class="p-2" id="introContain" style="color: #fff;"></pre>
+            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/tashanhe.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
+                <pre class="p-2" id="introContain" style=""></pre>
             </div> 
             <div class="card-footer" style="display: flex; flex-direction: row; justify-content: space-around;">
                 <span id="crtdt" class="text-secondary" style="padding-top: 9px;">{{ $crtdt }}</span>
