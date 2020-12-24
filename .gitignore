@@ -3,6 +3,7 @@
 /public/storage
 /public/qrcodes
 /public/audio
+/public/video
 /storage/*.key
 /vendor
 .env

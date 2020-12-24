@@ -45,7 +45,7 @@
     }
     #introContain {
         font-family: 'xbs';
-        font-size: 25px;
+        font-size: 30px;
     }
     .card-title, .ChineseInfor {
         font-family: 'ysyrxk';
@@ -53,12 +53,14 @@
         text-align: center;
     }
     pre {
+        overflow-x:hidden;
         white-space: pre-wrap;
         margin-bottom: 0rem !important;
     }
     .card-body {
         background-repeat: repeat;
-        background-position: center center;
+        background-size: cover;
+        /* background-position: center center; */
         /* background-attachment:fixed; */
         padding: 0rem !important;
     }
@@ -1129,8 +1131,8 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/tashanhe.jpg')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
-                <pre class="p-2" id="introContain" style=""></pre>
+            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/Chris.webp')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
+                <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div> 
             <div class="card-footer" style="display: flex; flex-direction: row; justify-content: space-around;">
                 <span id="crtdt" class="text-secondary" style="padding-top: 9px;">{{ $crtdt }}</span>
@@ -1196,8 +1198,8 @@
         @if ($video_path)
           <div class="wrapper mt-3">
             <div class="js-video">
-                <video class="js-media" poster="{{ asset('video/sintel.jpg') }}">
-                      <source src="{{ asset('video/sintel.mp4') }}" type="video/mp4" />
+                <video class="js-media" poster="{{ asset('video/chris.png') }}">
+                      <source src="{{ asset('video/chris.mp4') }}" type="video/mp4" />
                     <p>你的浏览器不支持 HTML5 Video。</p>
                 </video>
                 <i data-playPause class="playPause fa fa-play ui-icon"><span></span></i>

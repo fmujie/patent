@@ -171,7 +171,7 @@ class DataController extends Controller
             'lan' => $lan,
             'imgsArr' => $imgsArr,
             'crtdt' => $crtdt,
-            'video_path' => null
+            'video_path' => 'test'
         ]);
     }
 
