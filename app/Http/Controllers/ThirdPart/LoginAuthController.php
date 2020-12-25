@@ -13,10 +13,10 @@ use Illuminate\Support\Str;
 class LoginAuthController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth:social');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:social');
+    // }
 
     protected function guard()
     {
