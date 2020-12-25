@@ -6,13 +6,14 @@ namespace App\Models\Auth;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class SocialUser extends Authenticatable implements JWTSubject
 {
     protected $table = 'social_user';
     protected $guarded = ['id'];
 
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
