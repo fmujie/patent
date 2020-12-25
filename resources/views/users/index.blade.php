@@ -41,11 +41,12 @@
                     </td>
                 </tr>
                 @endforeach
+                <tr></tr>
                 @foreach ($usersThird as $userT)
                 <tr>
 
                     <td>{{ $userT->nick_name }}</td>
-                    {{-- <td>{{ $userT->email }}</td> --}}
+                    <td>{{ $userT->open_id }}</td>
                     <td>{{ $userT->created_at->format('F d, Y h:ia') }}</td>
                     <td>{{  $userT->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                     <td style="display: flex;">
