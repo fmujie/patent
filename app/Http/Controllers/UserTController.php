@@ -97,8 +97,9 @@ class UserTController extends Controller {
     public function edit($id) {
         $user = User::findOrFail($id); //Get user with specified id
         $roles = Role::get(); //Get all roles
+        dd($user);
 
-        return view('users.edit', compact('user', 'roles')); //pass user and roles data to view
+        return view('users.editT', compact('user', 'roles')); //pass user and roles data to view
 
     }
 
