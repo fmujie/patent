@@ -59,7 +59,7 @@ Route::middleware(['auth', 'role:Administer', 'throttle:60,1'])->group(function 
 
 Route::get('/test', 'TestController@test');
 
-Route::middleware(['middleware' => 'auth:social_user'])->group(function () {
+Route::middleware()->group(function () {
     Route::get('/login/{thirdPart}', 'ThirdPart\LoginAuthController@thirdLogin');
     // Route::get('/auth/callback', 'ThirdPart\LoginAuthController@gitHubCallBack');
     // Route::get('/authqq/callback', 'ThirdPart\LoginAuthController@qqCallBack');
