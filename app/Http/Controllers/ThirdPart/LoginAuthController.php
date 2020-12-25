@@ -5,7 +5,7 @@ namespace App\Http\Controllers\ThirdPart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
-use App\Models\Auth\SocialUser As User;
+use App\Models\Auth\SocialUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
