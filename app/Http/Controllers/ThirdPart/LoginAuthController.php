@@ -66,24 +66,23 @@ class LoginAuthController extends Controller
     public function thirdPartCallBack($thirdPartAuth)
     {
         $thirdPartName = substr($thirdPartAuth, 4);
-        $oauthUser = Socialite::with("$thirdPartName")->user();
+        $socialiteUser = Socialite::with("$thirdPartName")->user();
 
         $oauthUser = SocialUser::firstOrCreate([
-            'open_id'  => $oauthUser->getId(),
+            'open_id'  => $socialiteUser->getId(),
         ],[
             'type' => "$thirdPartName",
-            'nick_name' => $oauthUser->getNickname(),
-            'avatar_url' => $oauthUser->getAvatar(),
+            'nick_name' => $socialiteUser->getNickname(),
+            'avatar_url' => $socialiteUser->getAvatar(),
         ]);
 
         Auth::login($oauthUser, true);
 
         return view('home', [
             'type' => "$thirdPartName",
-            'nick_name' => $oauthUser->getNickname(),
-            'avatar_url' => $oauthUser->getAvatar(),
+            'nick_name' => $socialiteUser->getNickname(),
+            'avatar_url' => $socialiteUser->getAvatar(),
         ]);
-        // return redirect('/home');
     }
 
     /**
