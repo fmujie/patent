@@ -73,7 +73,7 @@ class LoginAuthController extends Controller
             'open_id'  => $oauthUser->getId(),
         ],[
             'type' => 'github',
-            'nickname' => $oauthUser->getNickname(),
+            'nick_name' => $oauthUser->getNickname(),
             'avatar_url' => $oauthUser->getAvatar(),
             // 'password' =>Hash::make(Str::random(24))
         ]);
