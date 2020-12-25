@@ -13,6 +13,16 @@ use Illuminate\Support\Str;
 class LoginAuthController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth:social');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('social');
+    }
+
     public function thirdLogin($thirdPart)
     {
         return Socialite::with($thirdPart)->redirect();

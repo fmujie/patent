@@ -83,4 +83,4 @@ Route::prefix('recruit')->group(function () {
     Route::get('/perinfor/{rUserId}', 'Recruit\PerInforController@index');
 });
 
-Route::get('/userPer', 'TestController@ceshiP');
+Route::get('/userPer', 'TestController@ceshiP')->middleware('auth');

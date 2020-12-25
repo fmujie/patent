@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'social' => [
+            'driver' => 'session',
+            'provider' => 'social_user',
+        ],
+
         'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
@@ -70,6 +75,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+
+        'social_user' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Auth\SocialUser::class
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
