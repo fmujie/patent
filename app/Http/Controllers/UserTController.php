@@ -97,7 +97,6 @@ class UserTController extends Controller {
     public function edit($id) {
         $user = User::findOrFail($id); //Get user with specified id
         $roles = Role::get(); //Get all roles
-        dd($user);
 
         return view('users.editT', compact('user', 'roles')); //pass user and roles data to view
 
@@ -115,10 +114,10 @@ class UserTController extends Controller {
 
     //Validate name, email and password fields    
         $this->validate($request, [
-            'name'=>'required|max:120',
-            'email'=>'required|email|unique:users,email,'.$id,
+            'nick_name'=>'required|max:120',
+            'open_id'=>'required|unique:social_user,'.$id,
         ]);
-        $input = $request->only(['name', 'email']); //Retreive the name, email and password fields
+        $input = $request->only(['nick_name', 'open_id']); //Retreive the name, email and password fields
         $roles = $request['roles']; //Retreive all roles
         $user->fill($input)->save();
 
