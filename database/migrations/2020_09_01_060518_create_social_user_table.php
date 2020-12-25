@@ -19,6 +19,7 @@ class CreateSocialUserTable extends Migration
             $table->string('open_id');
             $table->string('nick_name');
             $table->string('avatar_url');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
