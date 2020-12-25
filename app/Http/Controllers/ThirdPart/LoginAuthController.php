@@ -40,7 +40,7 @@ class LoginAuthController extends Controller
             'avatar_url' => $oauthUser->getAvatar(),
         ]);
 
-        Auth::login($oauthUser, true);
+        Auth::guard('social')->login($oauthUser, true);
 
         return redirect('/home');
     }
