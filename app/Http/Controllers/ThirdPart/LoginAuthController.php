@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
 use App\User;
+use App\Models\Auth\SocialUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -22,11 +23,13 @@ class LoginAuthController extends Controller
     {
         $oauthUser = Socialite::with('github')->user();
 
-        $oauthUser = User::firstOrCreate([
-            'email' => $oauthUser->email,
+        $oauthUser = SocialUser::firstOrCreate([
+            'open_id'  => $oauthUser->getId(),
         ],[
-            'name' => $oauthUser->name,
-            'password' =>Hash::make(Str::random(24))
+            'type' => 'github',
+            'nickname' => $oauthUser->getNickname(),
+            'avatar_url' => $oauthUser->getAvatar(),
+            // 'password' =>Hash::make(Str::random(24))
         ]);
 
         Auth::login($oauthUser, true);
