@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Email</th>
+                    <th>Certificate</th>
                     <th>Date/Time Added</th>
                     <th>User Roles</th>
                     <th>Operations</th>

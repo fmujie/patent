@@ -114,7 +114,6 @@ class PermissionController extends Controller {
         return redirect()->route('permissions.index')
             ->with('flash_message',
              'Permission'. $permission->name.' updated!');
-
     }
 
     /**

@@ -82,3 +82,5 @@ Route::prefix('recruit')->group(function () {
     Route::get('/login', 'Recruit\LogRegController@index');
     Route::get('/perinfor/{rUserId}', 'Recruit\PerInforController@index');
 });
+
+Route::get('/userPer', 'TestController@ceshiP');

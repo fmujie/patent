@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Alert;
+use Auth;
 
 class TestController extends Controller
 {
+
+    public function ceshiP()
+    {
+        $user = Auth::user();
+        $roles = $user->getRoleNames(); 
+        dd($roles);
+    }
     /**
      * 展示文件上传表单页面
      */
