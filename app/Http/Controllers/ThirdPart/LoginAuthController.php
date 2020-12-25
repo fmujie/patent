@@ -13,15 +13,10 @@ use Illuminate\Support\Str;
 class LoginAuthController extends Controller
 {
 
-    // public function __construct()
+    // protected function guard()
     // {
-    //     $this->middleware('auth:social');
+    //     return Auth::guard('social');
     // }
-
-    protected function guard()
-    {
-        return Auth::guard('social');
-    }
 
     public function thirdLogin($thirdPart)
     {
@@ -40,7 +35,7 @@ class LoginAuthController extends Controller
             'avatar_url' => $oauthUser->getAvatar(),
         ]);
 
-        Auth::guard('social')->login($oauthUser, true);
+        Auth::guard('social_user')->attempt($oauthUser, true);
 
         return redirect('/home');
     }

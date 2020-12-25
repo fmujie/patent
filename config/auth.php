@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
 
-        'social' => [
+        'social_user' => [
             'driver' => 'session',
             'provider' => 'social_user',
         ],
