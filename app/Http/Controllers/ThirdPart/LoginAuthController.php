@@ -68,15 +68,28 @@ class LoginAuthController extends Controller
     {
         $thirdPartName = substr($thirdPartAuth, 4);
         $oauthUser = Socialite::with("$thirdPartName")->user();
-        dd($oauthUser);
 
-        $datas = [
-            'nickname' => $oauthUser->getNickname(),
-            'avatar'   => $oauthUser->getAvatar(),
+        $oauthUser = SocialUser::firstOrCreate([
             'open_id'  => $oauthUser->getId(),
-        ];
-        dd($datas);
-        return $datas;
+        ],[
+            'type' => 'github',
+            'nickname' => $oauthUser->getNickname(),
+            'avatar_url' => $oauthUser->getAvatar(),
+            // 'password' =>Hash::make(Str::random(24))
+        ]);
+
+        Auth::login($oauthUser, true);
+
+        return redirect('/home');
+        // dd($oauthUser);
+
+        // $datas = [
+        //     'nickname' => $oauthUser->getNickname(),
+        //     'avatar'   => $oauthUser->getAvatar(),
+        //     'open_id'  => $oauthUser->getId(),
+        // ];
+        // dd($datas);
+        // return $datas;
     }
 
     /**
