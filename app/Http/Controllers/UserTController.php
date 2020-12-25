@@ -14,7 +14,7 @@ use Spatie\Permission\Models\Permission;
 //Enables us to output flash messaging
 use Session;
 
-class UserController extends Controller {
+class UserTController extends Controller {
 
     public function __construct() {
         $this->middleware(['auth', 'isAdmin']); //isAdmin middleware lets only users with a //specific permission permission to access these resources
