@@ -80,7 +80,7 @@ class LoginAuthController extends Controller
             'avatar_url' => $socialiteUser->getAvatar(),
         ]);
 
-        Auth::login($oauthUser, true);
+        Auth::guard('social_user')->login($oauthUser, true);
 
         return view('home', [
             'type' => "$thirdPartName",

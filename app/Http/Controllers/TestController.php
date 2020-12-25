@@ -12,7 +12,7 @@ class TestController extends Controller
 
     public function ceshiP()
     {
-        $user = Auth::guard('social')->user();
+        $user = Auth::guard('social_user')->user();
         $roles = $user->getRoleNames(); 
         dd($user, $roles);
     }
