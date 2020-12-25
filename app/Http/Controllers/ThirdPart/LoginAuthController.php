@@ -29,7 +29,6 @@ class LoginAuthController extends Controller
             'type' => 'github',
             'nickname' => $oauthUser->getNickname(),
             'avatar_url' => $oauthUser->getAvatar(),
-            // 'password' =>Hash::make(Str::random(24))
         ]);
 
         Auth::login($oauthUser, true);
@@ -72,24 +71,14 @@ class LoginAuthController extends Controller
         $oauthUser = SocialUser::firstOrCreate([
             'open_id'  => $oauthUser->getId(),
         ],[
-            'type' => 'github',
+            'type' => "$thirdPartName",
             'nick_name' => $oauthUser->getNickname(),
             'avatar_url' => $oauthUser->getAvatar(),
-            // 'password' =>Hash::make(Str::random(24))
         ]);
 
         Auth::login($oauthUser, true);
 
         return redirect('/home');
-        // dd($oauthUser);
-
-        // $datas = [
-        //     'nickname' => $oauthUser->getNickname(),
-        //     'avatar'   => $oauthUser->getAvatar(),
-        //     'open_id'  => $oauthUser->getId(),
-        // ];
-        // dd($datas);
-        // return $datas;
     }
 
     /**
@@ -131,6 +120,6 @@ class LoginAuthController extends Controller
             ]);
         }
 
-        dd($thirdPartAuth);
+        // dd($thirdPartAuth);
     }
 }
