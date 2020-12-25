@@ -117,7 +117,7 @@ class UserTController extends Controller {
         //     'nick_name'=>'required|max:120',
         //     'open_id'=>'required|unique:social_user,open_id'.$id,
         // ]);
-        // $input = $request->only(['nick_name', 'open_id']); //Retreive the name, email and password fields
+        $input = $request->only(['nick_name', 'open_id']); //Retreive the name, email and password fields
         $roles = $request['roles']; //Retreive all roles
         $user->fill($input)->save();
 
