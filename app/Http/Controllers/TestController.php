@@ -14,7 +14,7 @@ class TestController extends Controller
     {
         $user = Auth::user();
         $roles = $user->getRoleNames(); 
-        dd($roles);
+        dd($user, $roles);
     }
     /**
      * 展示文件上传表单页面
