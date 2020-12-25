@@ -78,7 +78,12 @@ class LoginAuthController extends Controller
 
         Auth::login($oauthUser, true);
 
-        return redirect('/home');
+        return view('home', [
+            'type' => "$thirdPartName",
+            'nick_name' => $oauthUser->getNickname(),
+            'avatar_url' => $oauthUser->getAvatar(),
+        ]);
+        // return redirect('/home');
     }
 
     /**

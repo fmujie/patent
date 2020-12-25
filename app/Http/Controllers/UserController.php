@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
 use Auth;
+use App\User;
+use App\Models\Auth\SocialUser;
 
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
@@ -27,8 +28,13 @@ class UserController extends Controller {
     */
     public function index() {
     //Get all users and pass it to the view
-        $users = User::all(); 
-        return view('users.index')->with('users', $users);
+        $usersLoc = User::all();
+        $usersThird = SocialUser::all();
+
+        return view('users.index')->with([
+            'usersLoc' => $usersLoc,
+            'usersThird' => $usersThird
+        ]);
     }
 
     /**

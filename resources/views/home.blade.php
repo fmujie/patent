@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Dear {{ $nick_name }}, you are logged in!
                 </div>
             </div>
         </div>
