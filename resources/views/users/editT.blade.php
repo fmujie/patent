@@ -20,7 +20,7 @@
 
     <div class="form-group">
         {{ Form::label('open_id', 'Open_id') }}
-        {{ Form::email('open_id', null, array('class' => 'form-control')) }}
+        {{ Form::text('open_id', null, array('class' => 'form-control')) }}
     </div>
 
     <h5><b>Give Role</b></h5>
