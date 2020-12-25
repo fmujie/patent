@@ -115,7 +115,7 @@ class UserTController extends Controller {
     //Validate name, email and password fields    
         $this->validate($request, [
             'nick_name'=>'required|max:120',
-            'open_id'=>'required|unique:social_user,'.$id,
+            'open_id'=>'required|unique:social_user,open_id'.$id,
         ]);
         $input = $request->only(['nick_name', 'open_id']); //Retreive the name, email and password fields
         $roles = $request['roles']; //Retreive all roles
