@@ -1131,7 +1131,7 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" id="scroll_div" style="background-image:url({{ env('APP_URL') . $bg_img}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
+            <div class="card-body" id="scroll_div" style="background-image:url({{ env('APP_URL') . $bg_img}}); height:380px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
             </div>
             <div class="card-footer" style="display: flex; flex-direction: row; justify-content: space-around;">
@@ -1198,8 +1198,8 @@
         @if ($video_path)
           <div class="wrapper mt-3">
             <div class="js-video">
-                <video class="js-media" poster="{{ asset('video/chris.png') }}">
-                      <source src="{{ asset('video/chris.mp4') }}" type="video/mp4" />
+                <video class="js-media" poster="{{ asset('video/jhmzy.png') }}">
+                      <source src="{{ asset('video/jhmzy.mp4') }}" type="video/mp4" />
                     <p>你的浏览器不支持 HTML5 Video。</p>
                 </video>
                 <i data-playPause class="playPause fa fa-play ui-icon"><span></span></i>
