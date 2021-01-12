@@ -18,4 +18,14 @@ class DataModel extends Model
      {
          return $this->hasMany('App\Models\EngPro\DataImgModel', 'data_id', 'id');
      }
+
+     /**
+     * 一对一关联 一条data可对应一张封面图片
+     *
+     * @return void
+     */
+     public function bgimg()
+     {
+         return $this->hasOne('App\Models\EngPro\DataBgImgModel', 'data_id', 'id');
+     }
 }

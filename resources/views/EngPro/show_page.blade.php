@@ -1131,9 +1131,9 @@
                     </audio>
                 </div>
             </div>
-            <div class="card-body" id="scroll_div" style="background-image:url({{asset('images/Chris.webp')}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
+            <div class="card-body" id="scroll_div" style="background-image:url({{ env('APP_URL') . $bg_img}}); height:343px; position: relative; overflow:hidden;overflow-y: scroll;text-align: center;">
                 <pre class="p-2" id="introContain" style="color: #fff;"></pre>
-            </div> 
+            </div>
             <div class="card-footer" style="display: flex; flex-direction: row; justify-content: space-around;">
                 <span id="crtdt" class="text-secondary" style="padding-top: 9px;">{{ $crtdt }}</span>
                 <button id="explbtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">

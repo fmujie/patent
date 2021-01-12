@@ -14,6 +14,7 @@ use App\Models\EngPro\DataModel;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DataRequest;
 use App\Models\EngPro\DataImgModel;
+use App\Models\EngPro\DataBgImgModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,7 +38,7 @@ class DataController extends Controller
             $checkAbbreRes = $ret->get('abbre');
             
             Alert::warning('提交格式有误', $checkAbbreRes[0])->autoClose(2500);
-            return view('EngPro.add_infor');
+            return redirect()->back();
         }
 
         $lan = $_POST['optradio'];
@@ -55,13 +56,22 @@ class DataController extends Controller
             return view('EngPro/add_infor');
         }
 
+        if ($request->hasFile('bgimgFile')) {
+            $bgImgFile = $request->file('bgimgFile');
+            $bg_img_path = $this->uploadFile($bgImgFile);
+            if (!$bg_img_path) {
+                Alert::error('封面图片上传失败');
+                return view('EngPro/add_infor');
+            }
+        }
+
         $imgFilesArr = [];
         if ($request->hasFile('imgFile')) {
             $imgFiles = $request->file('imgFile');
             foreach ($imgFiles as $key => $imgFile) {
                 $img_path = $this->uploadFile($imgFile);
                 if (!$img_path) {
-                    Alert::error('图片文件上传失败');
+                    Alert::error('轮播图片文件上传失败');
                     return view('EngPro/add_infor');
                 }
                 array_push($imgFilesArr, $img_path);
@@ -82,32 +92,37 @@ class DataController extends Controller
 
         if ($res) {
             $currentDataId = DB::connection()->getPdo()->lastInsertId();
+            if($bg_img_path) {
+                $bgImgInsertRes = DataBgImgModel::create([
+                    'data_id' => $currentDataId,
+                    'bg_img_path' => $bg_img_path
+                ]);
+                if (!$bgImgInsertRes) {
+                    DataModel::delete($currentDataId);
+                    Alert::error('封面Data插入失败', 'Submission Failed');
+                }
+            }
             if(!empty($imgFilesArr)) 
             {
                 foreach($imgFilesArr as $key => $img_path) {
                     $imgInsertRes = DataImgModel::create([
                         'data_id' => $currentDataId,
                         'img_path' => $img_path
-                    ]);;
-                    if ($imgInsertRes) {
-                        toast('提交成功','success')
-                        ->autoClose(2500)
-                        ->position('top')->timerProgressBar();
-                    } else {
+                    ]);
+                    if (!$imgInsertRes) {
                         DataModel::delete($currentDataId);
-                        Alert::error('提交失败', 'Submission Failed');
+                        Alert::error('轮播Data插入失败', 'Submission Failed');
                     }
                 }
-            } else {
-                toast('提交成功','success')
-                ->autoClose(2500)
-                ->position('top')->timerProgressBar();
             }
+            toast('提交成功','success')
+            ->autoClose(2500)
+            ->position('top')->timerProgressBar();
         } else {
             Alert::error('提交失败', 'Submission Failed');
         }
 
-        return view('EngPro/add_infor');
+        return redirect()->back();
     }
 
     public function showInfor()
@@ -133,6 +148,10 @@ class DataController extends Controller
         $data = $dataModel->where('page_address', $strRes)->first();
         $crtdt = $data->created_at->toDateTimeString();
         $imgs = $data->imgs;
+        $bg_img_obj = $data->bgimg;
+        if($bg_img_obj) {
+            $bg_img = $bg_img_obj->bg_img_path ? $bg_img_obj->bg_img_path : null;
+        }
         $imgsArr = [];
         foreach ($imgs as $key => $value) {
             array_push($imgsArr, $value->img_path);
@@ -170,6 +189,7 @@ class DataController extends Controller
             'trans' => $trans,
             'lan' => $lan,
             'imgsArr' => $imgsArr,
+            'bg_img' => isset($bg_img) ? $bg_img : '/images/bglove.jpg',
             'crtdt' => $crtdt,
             'video_path' => 'test'
         ]);
@@ -185,7 +205,7 @@ class DataController extends Controller
          if ($fileName){
              return $fileName;
          }
-         return '上传失败';
+         return null;
      }
  
      /**
