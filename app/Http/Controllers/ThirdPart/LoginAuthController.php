@@ -96,14 +96,8 @@ class LoginAuthController extends Controller
         ]);
 
         Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'password' => $socialiteUser->getId()]);
-        dd(Auth::guard('social')->check());
+        // dd(Auth::guard('social')->check());
         return view('welcome');
-        // dd(Auth::guard('social')->user());
-        // if(Auth::guard('social')->check()) {
-        //     dd('已登录');
-        // } else {
-        //     dd('登录失败');
-        // }
         // return view('welcome', [
         //     'type' => "$thirdPartName",
         //     'nick_name' => $socialiteUser->getNickname(),
