@@ -96,7 +96,7 @@ class LoginAuthController extends Controller
         ]);
 
         if (Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'password' => $socialiteUser->getId()])) {
-            Auth::guard('social')->login($oauthUser, true);
+            Auth::login($oauthUser, true);
         } else {
             dd('登陆失败');
         }
