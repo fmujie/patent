@@ -9,9 +9,18 @@ use App\Models\Auth\SocialUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginAuthController extends Controller
 {
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+     protected $redirectTo = '/home';
 
     public function __construct()
     {
@@ -80,8 +89,13 @@ class LoginAuthController extends Controller
             'avatar_url' => $socialiteUser->getAvatar(),
         ]);
 
-        Auth::guard('social')->loginUsingId($oauthUser->id, true);
-        dd(Auth::guard('social')->user());
+        Auth::guard('social')->login($oauthUser, true);
+        // dd(Auth::guard('social')->user());
+        // if(Auth::guard('social')->check()) {
+        //     dd('已登录');
+        // } else {
+        //     dd('登录失败');
+        // }
         return view('home', [
             'type' => "$thirdPartName",
             'nick_name' => $socialiteUser->getNickname(),

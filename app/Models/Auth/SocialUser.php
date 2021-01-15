@@ -5,8 +5,9 @@ namespace App\Models\Auth;
 // use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+// use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class SocialUser extends Authenticatable implements JWTSubject
 {
