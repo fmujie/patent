@@ -42,7 +42,7 @@ return [
         ],
 
         'social' => [
-            'driver' => 'jwt',
+            'driver' => 'session',
             'provider' => 'social_user',
         ],
 
