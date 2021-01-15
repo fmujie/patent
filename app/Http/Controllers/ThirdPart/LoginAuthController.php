@@ -95,6 +95,8 @@ class LoginAuthController extends Controller
         ]);
 
         Auth::guard('social')->login($oauthUser, true);
+
+        return view('welcome');
         // dd(Auth::guard('social')->user());
         // if(Auth::guard('social')->check()) {
         //     dd('已登录');
