@@ -13,10 +13,10 @@ use Illuminate\Support\Str;
 class LoginAuthController extends Controller
 {
 
-    // protected function guard()
-    // {
-    //     return Auth::guard('social');
-    // }
+    public function __construct()
+    {
+        $this->middleware('guest:social')->except(['thirdLogin', 'thirdPartCallBack']);
+    }
 
     public function thirdLogin($thirdPart)
     {
@@ -35,7 +35,7 @@ class LoginAuthController extends Controller
             'avatar_url' => $oauthUser->getAvatar(),
         ]);
 
-        Auth::guard('social_user')->attempt($oauthUser, true);
+        Auth::guard('social')->attempt($oauthUser, true);
 
         return redirect('/home');
     }
@@ -80,7 +80,8 @@ class LoginAuthController extends Controller
             'avatar_url' => $socialiteUser->getAvatar(),
         ]);
 
-        Auth::guard('social_user')->login($oauthUser, true);
+        $loginData = Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId()]);
+        dd($loginData);
 
         return view('home', [
             'type' => "$thirdPartName",

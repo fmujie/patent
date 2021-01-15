@@ -44,13 +44,12 @@ class SocialAuthController extends Controller
         switch ($type) {
             case 'qq':
             case 'weibo':
-                $user = SocialUserModel::firstOrCreate([
+                $user = SocialUser::firstOrCreate([
                     'open_id' => $oauthUser->getId()->first()
                 ], [
                     'type' => "$type",
-                    'open_id' => $oauthUser->getId(),
-                    'nickname' => $oauthUser->getNickname(),
-                    'avatar' => $oauthUser->getAvatar(),
+                    'nick_name' => $socialiteUser->getNickname(),
+                    'avatar_url' => $socialiteUser->getAvatar(),
                 ]);
                 break;
             

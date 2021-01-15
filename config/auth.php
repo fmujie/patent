@@ -41,8 +41,8 @@ return [
             'provider' => 'users',
         ],
 
-        'social_user' => [
-            'driver' => 'session',
+        'social' => [
+            'driver' => 'jwt',
             'provider' => 'social_user',
         ],
 
