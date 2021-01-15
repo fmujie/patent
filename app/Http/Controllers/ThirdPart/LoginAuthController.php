@@ -94,8 +94,8 @@ class LoginAuthController extends Controller
             'avatar_url' => $socialiteUser->getAvatar(),
         ]);
 
-        Auth::guard('social')->login($oauthUser, true);
-
+        Auth::guard('social')->attempt(['open_id' => $open_id, 'type' => $type]);
+        dd(Auth::guard('social')->check());
         return view('welcome');
         // dd(Auth::guard('social')->user());
         // if(Auth::guard('social')->check()) {
