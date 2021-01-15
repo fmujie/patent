@@ -92,9 +92,10 @@ class LoginAuthController extends Controller
             'type' => "$thirdPartName",
             'nick_name' => $socialiteUser->getNickname(),
             'avatar_url' => $socialiteUser->getAvatar(),
+            'password' => bcrypt($socialiteUser->getId()),
         ]);
 
-        Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'type' => "$thirdPartName"]);
+        Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'password' => bcrypt($socialiteUser->getId())]);
         dd(Auth::guard('social')->check());
         return view('welcome');
         // dd(Auth::guard('social')->user());
