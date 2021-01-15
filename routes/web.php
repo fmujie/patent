@@ -69,7 +69,7 @@ Route::get('/test', 'TestController@test');
 Route::group(['middleware' => ['auth:social']], function () {
     // Route::get('/login/{thirdPart}', 'ThirdPart\LoginAuthController@thirdLogin');
     // Route::get('/{thirdPartAuth}/callback', 'ThirdPart\LoginAuthController@thirdPartCallBack');
-    // Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/welcome', 'ThirdPart\LoginAuthController@index')->name('welcome');
 });
 
 Route::prefix('recruit')->group(function () {

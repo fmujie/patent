@@ -20,11 +20,16 @@ class LoginAuthController extends Controller
      *
      * @var string
      */
-     protected $redirectTo = '/home';
+    protected $redirectTo = '/welcome';
 
     public function __construct()
     {
         $this->middleware('guest:social')->except(['thirdLogin', 'thirdPartCallBack']);
+    }
+
+    public function index()
+    {
+        return view('welcome');
     }
 
     public function thirdLogin($thirdPart)
@@ -96,11 +101,11 @@ class LoginAuthController extends Controller
         // } else {
         //     dd('登录失败');
         // }
-        return view('home', [
-            'type' => "$thirdPartName",
-            'nick_name' => $socialiteUser->getNickname(),
-            'avatar_url' => $socialiteUser->getAvatar(),
-        ]);
+        // return view('welcome', [
+        //     'type' => "$thirdPartName",
+        //     'nick_name' => $socialiteUser->getNickname(),
+        //     'avatar_url' => $socialiteUser->getAvatar(),
+        // ]);
     }
 
     /**
