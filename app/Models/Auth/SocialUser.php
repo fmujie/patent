@@ -34,4 +34,9 @@ class SocialUser extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function getRememberTokenName()
+    {
+        return 'remember_token';//自定义token字段
+    }
 }

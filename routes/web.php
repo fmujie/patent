@@ -66,6 +66,11 @@ Route::get('/test', 'TestController@test');
     // Route::get('/authweibo/callback', 'ThirdPart\LoginAuthController@weiboCallBack');
     Route::get('/{thirdPartAuth}/callback', 'ThirdPart\LoginAuthController@thirdPartCallBack');
 // });
+Route::group(['middleware' => ['auth:social']], function () {
+    // Route::get('/login/{thirdPart}', 'ThirdPart\LoginAuthController@thirdLogin');
+    // Route::get('/{thirdPartAuth}/callback', 'ThirdPart\LoginAuthController@thirdPartCallBack');
+    // Route::get('/home', 'HomeController@index')->name('home');
+});
 
 Route::prefix('recruit')->group(function () {
     Route::prefix('qus')->group(function () {

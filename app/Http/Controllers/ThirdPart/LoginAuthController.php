@@ -81,7 +81,7 @@ class LoginAuthController extends Controller
         ]);
 
         Auth::guard('social')->loginUsingId($oauthUser->id, true);
-
+        dd(Auth::guard('social')->user());
         return view('home', [
             'type' => "$thirdPartName",
             'nick_name' => $socialiteUser->getNickname(),
