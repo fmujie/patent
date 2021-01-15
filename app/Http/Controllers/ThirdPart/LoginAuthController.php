@@ -94,7 +94,7 @@ class LoginAuthController extends Controller
             'avatar_url' => $socialiteUser->getAvatar(),
         ]);
 
-        Auth::guard('social')->attempt(['open_id' => $open_id, 'type' => $type]);
+        Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'type' => "$thirdPartName"]);
         dd(Auth::guard('social')->check());
         return view('welcome');
         // dd(Auth::guard('social')->user());
