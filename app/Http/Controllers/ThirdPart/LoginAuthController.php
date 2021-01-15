@@ -95,8 +95,11 @@ class LoginAuthController extends Controller
             'password' => bcrypt($socialiteUser->getId()),
         ]);
 
-        Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'password' => $socialiteUser->getId()]);
-        // dd(Auth::guard('social')->check());
+        if (Auth::guard('social')->attempt(['open_id' => $socialiteUser->getId(), 'password' => $socialiteUser->getId()])) {
+            Auth::guard('social')->login($oauthUser, true);
+        } else {
+            dd('登陆失败');
+        }
         return view('welcome');
         // return view('welcome', [
         //     'type' => "$thirdPartName",
