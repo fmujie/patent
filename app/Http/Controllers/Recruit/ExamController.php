@@ -7,15 +7,17 @@ use App\Models\Qus\Quss;
 use App\Models\Qus\QusSel;
 use Illuminate\Http\Request;
 use App\Models\Qus\QusGroup;
+use App\Models\Qus\UserAns;
+use App\Models\Recruit\RecruitModel;
+use App\Models\MiniPro\Department;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class ExamController extends Controller
 {
-    public function index()
+    public function index($gpId, $currentStu, $period, $depName1)
     {
-        $id = 32;
-        $qusGpDt = QusGroup::find($id);
+        $qusGpDt = QusGroup::find($gpId);
         $dvsnQusDt = $qusGpDt->quss->groupBy('qus_type')->toArray();
         $sgSelDt = array_key_exists('sg_sel', $dvsnQusDt) ? $dvsnQusDt['sg_sel'] : [];
         $mtSelDt = array_key_exists('mt_sel', $dvsnQusDt) ? $dvsnQusDt['mt_sel'] : [];
@@ -29,12 +31,73 @@ class ExamController extends Controller
             $gpFilDt[$key]['gpFtPtn'] = $gpFilArr[0];
             $gpFilDt[$key]['gpEdPtn'] = $gpFilArr[1];
         }
+        // dd($gpFilDt, $skTchDt);
         return view('Recruit.ShowQus.PenExam', [
             'sgSelDt' => $sgSelQusArr,
             'mtSelDt' => $mtSelQusArr,
             'gpFilDt' => $gpFilDt,
             'skTchDt' => $skTchDt,
+            'userId'  => $currentStu->id,
+            'userName' => $currentStu->name,
+            'userPeriod' => $period,
+            'department' => $depName1,
+            'gpId' => $gpId,
         ]);
+    }
+
+    public function submitEm(Request $request)
+    {
+        $gpId = $request->input('gpId');
+        $userId = $request->input('userId');
+        $sgSelAns = $request->input('sgSel');
+        $qusGpDt = QusGroup::find($gpId);
+        $dvsnQusDt = $qusGpDt->quss->groupBy('qus_type')->toArray();
+        // 核心coding   运用多层foreach将用户答题情况入库
+        foreach ($dvsnQusDt as $key => $value) {
+            switch ($key) {
+                case 'sg_sel': foreach ($value as $k => $v) {
+                    UserAns::create([
+                        'user_id' => $userId,
+                        'qus_id' => $v['id'],
+                        'ans_content' => substr($request->input('sgSel' . $v['id']), 3),
+                    ]);
+                };
+                break;
+                case 'mt_sel': foreach ($value as $k => $v) {
+                    $tempArr = [];
+                    foreach ($request->input('mtSel' . $v['id']) as $kk => $vv) {
+                        array_push($tempArr, substr($vv, 3));
+                    }
+                    $ansStr = implode('|', $tempArr);
+                    UserAns::create([
+                        'user_id' => $userId,
+                        'qus_id' => $v['id'],
+                        'ans_content' => $ansStr,
+                    ]);
+                };
+                break;
+                case 'gp_fil': foreach ($value as $k => $v) {
+                    UserAns::create([
+                        'user_id' => $userId,
+                        'qus_id' => $v['id'],
+                        'ans_content' => $request->input('gpFil' . $v['id']),
+                    ]);
+                };
+                break;
+                default: foreach ($value as $k => $v) {
+                    UserAns::create([
+                        'user_id' => $userId,
+                        'qus_id' => $v['id'],
+                        'ans_content' => $request->input('skTch' . $v['id']),
+                    ]);
+                };
+                break;
+            }
+        }
+        toast("交卷成功",'success')
+            ->autoClose(2500)
+            ->position('top')->timerProgressBar();
+        return redirect()->to('recruit/logview');
     }
 
     private function splitPushArr($data = [])

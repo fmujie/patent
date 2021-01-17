@@ -85,8 +85,10 @@ Route::prefix('recruit')->group(function () {
     });
     Route::prefix('exam')->group(function () {
         Route::get('/qusview', 'Recruit\ExamController@index');
+        Route::post('/login', 'Recruit\LogRegController@login');
+        Route::post('/submit', 'Recruit\ExamController@submitEm');
     });
-    Route::get('/login', 'Recruit\LogRegController@index');
+    Route::get('/logview', 'Recruit\LogRegController@logView');
     Route::get('/perinfor/{rUserId}', 'Recruit\PerInforController@index');
 });
 
