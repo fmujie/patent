@@ -5,16 +5,25 @@ namespace App\Http\Controllers\Recruit;
 use Alert;
 use App\Models\Qus\Quss;
 use App\Models\Qus\QusSel;
+use App\Models\Qus\UserAns;
 use Illuminate\Http\Request;
 use App\Models\Qus\QusGroup;
-use App\Models\Qus\UserAns;
-use App\Models\Recruit\RecruitModel;
 use App\Models\MiniPro\Department;
 use Illuminate\Support\Facades\DB;
+use App\Models\Recruit\RecruitModel;
 use App\Http\Controllers\Controller;
 
 class ExamController extends Controller
 {
+    /**
+     * 转到答题界面
+     *
+     * @param [type] $gpId
+     * @param [type] $currentStu
+     * @param [type] $period
+     * @param [type] $depName1
+     * @return void
+     */
     public function index($gpId, $currentStu, $period, $depName1)
     {
         $qusGpDt = QusGroup::find($gpId);
@@ -23,7 +32,6 @@ class ExamController extends Controller
         $mtSelDt = array_key_exists('mt_sel', $dvsnQusDt) ? $dvsnQusDt['mt_sel'] : [];
         $sgSelQusArr = $this->splitPushArr($sgSelDt);
         $mtSelQusArr = $this->splitPushArr($mtSelDt);
-        // dd($sgSelQusArr, $mtSelQusArr);
         $gpFilDt = array_key_exists('gp_fil', $dvsnQusDt) ? $dvsnQusDt['gp_fil'] : null;
         $skTchDt = array_key_exists('sk_tch', $dvsnQusDt) ? $dvsnQusDt['sk_tch'] : null;
         foreach ($gpFilDt as $key => $value) {
@@ -31,7 +39,6 @@ class ExamController extends Controller
             $gpFilDt[$key]['gpFtPtn'] = $gpFilArr[0];
             $gpFilDt[$key]['gpEdPtn'] = $gpFilArr[1];
         }
-        // dd($gpFilDt, $skTchDt);
         return view('Recruit.ShowQus.PenExam', [
             'sgSelDt' => $sgSelQusArr,
             'mtSelDt' => $mtSelQusArr,
@@ -45,6 +52,12 @@ class ExamController extends Controller
         ]);
     }
 
+    /**
+     * 答题数据入库
+     *
+     * @param Request $request
+     * @return void
+     */
     public function submitEm(Request $request)
     {
         $gpId = $request->input('gpId');
@@ -100,6 +113,12 @@ class ExamController extends Controller
         return redirect()->to('recruit/logview');
     }
 
+    /**
+     * 查询数据分割推入对应数组
+     *
+     * @param array $data
+     * @return void
+     */
     private function splitPushArr($data = [])
     {
         $returnSelQusArr = [];

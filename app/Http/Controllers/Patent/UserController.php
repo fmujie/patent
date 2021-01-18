@@ -18,18 +18,14 @@ class UserController extends Controller
     public function search_data(Request $Request)
     {
         $input = $Request->all();
-        // dump($input);
         $selectCon = $Request->input('transData');
-        // dump($selectCon);
         if ($selectCon == null) {
             Alert::warning('Please improve the search field information');
             return view('Patent.search');
         }
         $sql = 'select * from patent where ' . $selectCon;
-        // dd($sql);
         $sqls = 'select * from patent where ';
         $datas = DB::select($sql);
-        // dd($datas);
         if ($datas == null) {
             Alert::info("Didn't find any information");
         }

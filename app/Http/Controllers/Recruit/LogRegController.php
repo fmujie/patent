@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Recruit;
 
 use Alert;
 use Illuminate\Http\Request;
+use App\Models\Qus\QusGroup;
+use App\Models\MiniPro\Department;
 use App\Models\Recruit\RecruitModel;
 use App\Http\Controllers\Controller;
-use App\Models\MiniPro\Department;
-use App\Models\Qus\QusGroup;
 use App\Http\Controllers\Recruit\ExamController;
 
 class LogRegController extends Controller
@@ -32,7 +32,6 @@ class LogRegController extends Controller
         $period = '20' . (substr($nb, 0, 2) + 2);
         $reportFDep = $currentStudent->part_1;
         $reportSDep = $currentStudent->part_2;
-        // dd($reportFDep);
         $depName1 = Department::where('id', $reportFDep)->first();
         if($depName1) {
             $depName1 = $depName1->department;

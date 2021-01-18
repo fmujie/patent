@@ -47,7 +47,7 @@ class QusDesController extends Controller
     /**
      * 转到查看总体题组视图
      *
-     * @return void
+     * @return view
      */
     public function viewGp()
     {
@@ -80,14 +80,11 @@ class QusDesController extends Controller
                 array_push($allQuss, $va);
             }
         }
-        // dd($allQuss);
-        // $qusArr = [];
         $selQusArr = [];
         $gpSkQusArr = [];
         foreach ($allQuss as $key => $value) {
             $qusDt = Quss::find($value->id);
             $qusSelDts = $qusDt->qusSel;
-            // dd($qusDt);
             $qusSelArr = [];
             foreach ($qusSelDts as $k => $v) {
                 array_push($qusSelArr,[
@@ -120,7 +117,6 @@ class QusDesController extends Controller
             'gpSkCount' => $gpSkCount,
             'qusGpId' => $qusGpId
         ]);
-
     }
 
     /**

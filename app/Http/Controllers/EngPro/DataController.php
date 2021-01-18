@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\EngPro;
 
-
 use Alert;
 use Pinyin;
 use QrCode;
@@ -14,8 +13,8 @@ use App\Models\EngPro\DataModel;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DataRequest;
 use App\Models\EngPro\DataImgModel;
-use App\Models\EngPro\DataBgImgModel;
 use App\Http\Controllers\Controller;
+use App\Models\EngPro\DataBgImgModel;
 use Illuminate\Support\Facades\Storage;
 
 class DataController extends Controller
