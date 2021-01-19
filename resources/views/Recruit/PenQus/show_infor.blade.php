@@ -62,6 +62,7 @@
                             <th>填空数目</th>
                             <th>简答数目</th>
                             <th>创建时间</th>
+                            <th>题组状态</th>
                             <th>查看详细</th>
                         </tr>
                     </thead>
@@ -69,14 +70,27 @@
                         @foreach ($datas as $data)
                         <tr>
                             <td>{{ $data->id }}</td>
-                            <td>{{ $data->bel_depart }}</td>
+                            <td>{{ $data->belDep->department }}</td>
                             <td>{{ $data->bel_period }}</td>
                             <td>{{ $data->pre_single }}</td>
                             <td>{{ $data->pre_multiple }}</td>
                             <td>{{ $data->pre_gapfil }}</td>
                             <td>{{ $data->pre_sketch }}</td>
                             <td>{{ $data->created_at }}</td>
-                            <th><a class="btn btn-info" href="./viewgp/info/{{ $data->id }}" target="_blank">点此跳转</a></th>
+                            <td>
+                                @switch($data->status)
+                                    @case(0)
+                                    <button type="button" class="btn btn-info">可编辑</button>
+                                    @break
+                                    @case(1)
+                                    <button type="button" class="btn btn-warning">已锁定</button>
+                                    @break
+                                    @default
+                                    <button type="button" class="btn btn-success">已开放</button>
+                                    @break
+                                @endswitch
+                            </td>
+                            <th><a class="btn btn-primary" href="./viewgp/info/{{ $data->id }}" target="_blank">点此跳转</a></th>
                         </tr>
                         @endforeach
                     </tbody>

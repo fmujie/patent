@@ -15,7 +15,7 @@ class CreateUserAnsTable extends Migration
     {
         Schema::create('user_ans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id'); // 用户id
+            $table->unsignedBigInteger('user_id'); // 用户id
             $table->integer('qus_id'); // 题目编号
             $table->text('ans_content'); // 作答内容
             $table->timestamps();

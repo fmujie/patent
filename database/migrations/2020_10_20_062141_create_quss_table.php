@@ -15,7 +15,7 @@ class CreateQussTable extends Migration
     {
         Schema::create('quss', function (Blueprint $table) {
             $table->bigIncrements('id'); // 题目编号
-            $table->integer('bel_qus_gpid'); // 所属题组编号
+            $table->unsignedInteger('bel_qus_gpid'); // 所属题组编号
             $table->string('qus_type'); // 题目类型
             $table->string('qus_content'); // 问题内容
             $table->timestamps();

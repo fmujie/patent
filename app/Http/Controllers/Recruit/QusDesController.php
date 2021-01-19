@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Recruit;
 
 use Alert;
+use Carbon\Carbon;
 use App\Models\Qus\Quss;
 use App\Models\Qus\QusSel;
 use Illuminate\Http\Request;
@@ -41,7 +42,8 @@ class QusDesController extends Controller
      */
     public function index()
     {
-        return view('Recruit.PenQus.design');
+        $currentPeriod = substr(Carbon::now()->toDateString(), 0, 4) + 2;
+        return view('Recruit.PenQus.design', ['period' => $currentPeriod]);
     }
 
     /**
@@ -70,10 +72,12 @@ class QusDesController extends Controller
     public function viewOGpInfo($qusGpId = null)
     {
         $qusGpDt = QusGroup::find($qusGpId);
+        $status = $qusGpDt->status;
         if (!$qusGpId || !$qusGpDt) {
             Alert::error('题组参数不正确，请重试')->autoClose(2500);
             return redirect()->back();
         }
+        $department = $qusGpDt->belDep->department;
         $allQuss = [];
         foreach ($qusGpDt->quss->groupBy('qus_type') as $key => $value) {
             foreach ($value as $ke => $va) {
@@ -115,7 +119,9 @@ class QusDesController extends Controller
             'gpSkDatas' => $gpSkQusArr,
             'selCount' => $selCount,
             'gpSkCount' => $gpSkCount,
-            'qusGpId' => $qusGpId
+            'qusGpId' => $qusGpId,
+            'department' => $department,
+            'status' => $status
         ]);
     }
 
@@ -127,10 +133,18 @@ class QusDesController extends Controller
      */
     public function dsTplt(Request $request)
     {
+        $period = $request->input('bel_period');
+        $department = $request->input('bel_depart');
+        if (QusGroup::where('bel_period', $period)->where('bel_depart', $department)->first()) {
+            toast("The question group of this department already exists",'info')
+            ->autoClose(2500)
+            ->position('top')->timerProgressBar();
+            return redirect()->back();
+        }
         $qusGpData = QusGroup::create($request->all());
         if (!$qusGpData) {
             Alert::error('题组模板配置失败')->autoClose(2500);
-            $this->index();
+            return redirect()->back();
         }
         $qusGpId = $qusGpData->id;
         $qusN = [];
@@ -165,6 +179,33 @@ class QusDesController extends Controller
     }
 
     /**
+     * 设定题组状态
+     *
+     * @param Request $request
+     * @param [type] $qusGpId
+     * @return void
+     */
+    public function setStatus(Request $request, $qusGpId = null)
+    {
+        if (!$qusGpId) {
+            Alert::error('缺少题组定位参数')->autoClose(2500);
+        } else {
+            $curtQusGpEl = QusGroup::find($qusGpId);
+            $upRet = $curtQusGpEl->update([
+                'status' => $request->setStatus,
+            ]);
+            if (!$upRet) {
+                Alert::error('题组状态更新失败，请重试')->autoClose(2500);
+            } else {
+                toast('题组状态更新成功','success')
+                ->autoClose(2500)
+                ->position('top')->timerProgressBar();
+            }
+        }
+        return redirect()->back();
+    }
+
+    /**
      * 更新题目内容
      *
      * @param Request $request
@@ -177,27 +218,31 @@ class QusDesController extends Controller
             Alert::error('缺少题干定位参数')->autoClose(2500);
         } else {
             $curtQusEl = Quss::find($qusId);
-            $upRet = $curtQusEl->update([
-                'qus_content' => $request->qusCt,
-            ]);
-            if (!$upRet) {
-                Alert::error('题目内容更新失败，请重试')->autoClose(2500);
+            if ($curtQusEl->qusGroup->status != 0) {
+                Alert::error('当前题组状态不可更改')->autoClose(2500);
             } else {
-                toast('题目内容更新成功','success')
-                ->autoClose(2500)
-                ->position('top')->timerProgressBar();
-            }
-            if (array_key_exists($curtQusEl->qus_type, $this->selCt)) {
-                $selCDt = $curtQusEl->qusSel;
-                foreach ($selCDt as $key => $value) {
-                    $str = 'qusSelC' . $value->id;
-                    $input = $request->all();
-                    $cret = QusSel::find($value->id)->update([
-                        'sel_content' => $input["$str"],
-                    ]);
-                    // if ($cret) {
-                    //     Alert::success('题干同选项内容更新成功');
-                    // }
+                $upRet = $curtQusEl->update([
+                    'qus_content' => $request->qusCt,
+                ]);
+                if (!$upRet) {
+                    Alert::error('题目内容更新失败，请重试')->autoClose(2500);
+                } else {
+                    toast('题目内容更新成功','success')
+                    ->autoClose(2500)
+                    ->position('top')->timerProgressBar();
+                }
+                if (array_key_exists($curtQusEl->qus_type, $this->selCt)) {
+                    $selCDt = $curtQusEl->qusSel;
+                    foreach ($selCDt as $key => $value) {
+                        $str = 'qusSelC' . $value->id;
+                        $input = $request->all();
+                        $cret = QusSel::find($value->id)->update([
+                            'sel_content' => $input["$str"],
+                        ]);
+                        // if ($cret) {
+                        //     Alert::success('题干同选项内容更新成功');
+                        // }
+                    }
                 }
             }
         }
@@ -206,7 +251,7 @@ class QusDesController extends Controller
 
     /**
      * 添加模板题目
-     *
+     * return 过多
      * @param Request $request
      * @param [type] $qusGpId
      * @return void
@@ -216,6 +261,10 @@ class QusDesController extends Controller
         if (!$qusGpId) {
             Alert::error('缺少题组定位参数')->autoClose(2500);
         } else {
+            if (QusGroup::find($qusGpId)->status != 0) {
+                Alert::error('当前题组状态不可添加')->autoClose(2500);
+                return redirect()->back();
+            }
             $qusType = $request->qusType;
             $qusNum = $request->qusNum;
             $qusInfor = [];
@@ -262,6 +311,7 @@ class QusDesController extends Controller
             ->position('top')->timerProgressBar();
             return redirect()->back();
         }
+        return redirect()->back();
     }
 
     /**
@@ -273,30 +323,35 @@ class QusDesController extends Controller
     public function deleteQus($qusId = null)
     {
         $qusDt = Quss::find($qusId);
-        $qusType = $qusDt->qus_type;
-        if (!$qusId || !$qusDt) {
-            Alert::error('题目参数不正确，请重试')->autoClose(2500);
+        if ($qusDt->qusGroup->status != 0) {
+            Alert::error('当前题组状态不可删除')->autoClose(2500);
         } else {
-            $deRet = $qusDt->delete();
-            if (!$deRet) {
-                Alert::error('题目删除失败，请重试')->autoClose(2500);
+            $qusType = $qusDt->qus_type;
+            if (!$qusId || !$qusDt) {
+                Alert::error('题目参数不正确，请重试')->autoClose(2500);
             } else {
-                $qusGpDt = $qusDt->qusGroup;
-                $columName = $this->correspondArr["$qusDt->qus_type"];
-                $preNum = $qusGpDt->toArray()["$columName"];
-                $currentNum = $preNum - 1;
-                $updateRet = $qusGpDt->update([
-                    "$columName" => $currentNum
-                ]);
-                if (!$updateRet) {
-                    Alert::error('题组信息更新失败，请联系管理员手动更新')->autoClose(2500);
+                $deRet = $qusDt->delete();
+                if (!$deRet) {
+                    Alert::error('题目删除失败，请重试')->autoClose(2500);
                 } else {
-                    toast('题目删除成功','success')
-                    ->autoClose(2500)
-                    ->position('top')->timerProgressBar();   
+                    $qusGpDt = $qusDt->qusGroup;
+                    $columName = $this->correspondArr["$qusDt->qus_type"];
+                    $preNum = $qusGpDt->toArray()["$columName"];
+                    $currentNum = $preNum - 1;
+                    $updateRet = $qusGpDt->update([
+                        "$columName" => $currentNum
+                    ]);
+                    if (!$updateRet) {
+                        Alert::error('题组信息更新失败，请联系管理员手动更新')->autoClose(2500);
+                    } else {
+                        toast('题目删除成功','success')
+                        ->autoClose(2500)
+                        ->position('top')->timerProgressBar();   
+                    }
                 }
             }
         }
+        
         return redirect()->back();
     }
 }

@@ -53,23 +53,22 @@
         @csrf
         <label for="selDepart">选择部门:</label>
         <select class="form-control" name="bel_depart" id="selDepart">
-            <option>综合部</option>
-            <option>媒体中心</option>
-            <option>新闻记者部</option>
-            <option>品牌运营部</option>
-            <option>技术支持部-程序</option>
-            <option>技术支持部-美工</option>
-            <option>技术支持部-闪客</option>
-            <option>摄影小组</option>
+            <option value="1">综合部</option>
+            <option value="2">媒体中心</option>
+            <option value="3">新闻记者部</option>
+            <option value="4">品牌运营部</option>
+            <option value="5">技术支持部-程序</option>
+            <option value="6">技术支持部-美工</option>
+            <option value="7">技术支持部-闪客</option>
+            <option value="8">摄影小组</option>
         </select>
-        <label for="selGrad">选择届次:</label>
+        <label for="selGrad">当前年份所属届次:(只可选择近三届)</label>
         <select class="form-control" name="bel_period" id="selGrad">
-            <option>2018</option>
-            <option>2019</option>
-            <option>2020</option>
-            <option>2021</option>
+            <option selected="selected" value="{{ $period }}">{{ $period }}</option>
+            <option>{{ $period - 1 }}</option>
+            <option>{{ $period - 2 }}</option>
         </select>
-        <label for="preSC">选择预设单选数量:</label>
+        <label for="preSC">选择类预设单选数量:</label>
         <select class="form-control" name="pre_single" id="preSC">
             <option>5</option>
             <option>4</option>
@@ -78,7 +77,7 @@
             <option>1</option>
             <option>0</option>
         </select>
-        <label for="preMC">选择预设多选数量:</label>
+        <label for="preMC" class="text-light">选择类预设多选数量:</label>
         <select class="form-control" name="pre_multiple" id="preMC">
             <option>5</option>
             <option>4</option>
@@ -87,7 +86,7 @@
             <option>1</option>
             <option>0</option>
         </select>
-        <label for="preFB">选择预设填空数量:</label>
+        <label for="preFB" class="text-light">简述类预设填空数量:</label>
         <select class="form-control" name="pre_gapfil" id="preFB">
             <option>5</option>
             <option>4</option>
@@ -96,7 +95,7 @@
             <option>1</option>
             <option>0</option>
         </select>
-        <label for="preSA">选择预设简答数量:</label>
+        <label for="preSA" class="text-light">简述类预设简答数量:</label>
         <select class="form-control" name="pre_sketch" id="preSA">
             <option>5</option>
             <option>4</option>

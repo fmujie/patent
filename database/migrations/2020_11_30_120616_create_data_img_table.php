@@ -15,7 +15,7 @@ class CreateDataImgTable extends Migration
     {
         Schema::create('data_img', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('data_id');
+            $table->unsignedInteger('data_id');
             $table->string('img_path');
             $table->timestamps();
         });

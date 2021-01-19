@@ -77,6 +77,7 @@ Route::prefix('recruit')->group(function () {
         Route::get('/desview', 'Recruit\QusDesController@index');
         Route::post('/dsplt', 'Recruit\QusDesController@dsTplt');
         Route::get('/viewgp', 'Recruit\QusDesController@viewGp');
+        Route::post('/setstatus/{qusGpId?}', 'Recruit\QusDesController@setStatus');
         Route::get('/viewgp/info/{qusGpId?}', 'Recruit\QusDesController@viewOGpInfo');
         Route::patch('/update/gpsk/{qusId?}', 'Recruit\QusDesController@updateQus');
         Route::patch('/update/sel/{qusId?}', 'Recruit\QusDesController@updateQus');

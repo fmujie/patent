@@ -15,12 +15,13 @@ class CreateQusGroupTable extends Migration
     {
         Schema::create('qus_group', function (Blueprint $table) {
             $table->bigIncrements('id'); // 题组编号
-            $table->string('bel_depart'); // 所属部门
+            $table->integer('bel_depart'); // 所属部门
             $table->string('bel_period'); // 所属届次
-            $table->integer('pre_single'); // 预设单选
-            $table->integer('pre_multiple'); // 预设多选
-            $table->integer('pre_gapfil'); // 预设填空
-            $table->integer('pre_sketch'); // 预设简答
+            $table->unsignedTinyInteger('status')->default(0); // 题组状态 0 可编辑 1 不可编辑 2 用户可访问答题
+            $table->unsignedTinyInteger('pre_single'); // 预设单选
+            $table->unsignedTinyInteger('pre_multiple'); // 预设多选
+            $table->unsignedTinyInteger('pre_gapfil'); // 预设填空
+            $table->unsignedTinyInteger('pre_sketch'); // 预设简答
             $table->timestamps();
         });
     }

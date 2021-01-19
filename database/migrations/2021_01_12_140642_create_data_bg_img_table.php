@@ -15,7 +15,7 @@ class CreateDataBgImgTable extends Migration
     {
         Schema::create('data_bg_img', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('data_id');
+            $table->unsignedInteger('data_id');
             $table->string('bg_img_path');
             $table->timestamps();
         });

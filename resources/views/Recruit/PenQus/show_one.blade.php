@@ -63,7 +63,7 @@
                 <li></li>
                 <li></li>
             </ul>
-            <h1 class="display-3">Written questions edit</h1>
+            <h2 class="display-3">{{ $department }}题组编辑</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
@@ -74,7 +74,21 @@
             <div class="self-bgdiv mb-3 rounded">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">选择类题目</h4>
+                    @switch($status)
+                        @case(0)
+                        <button type="button" class="btn btn-info">可编辑</button>
+                        @break
+                        @case(1)
+                        <button type="button" class="btn btn-warning">已锁定</button>
+                        @break
+                        @default
+                        <button type="button" class="btn btn-success">已开放</button>
+                        @break
+                    @endswitch
                     <!-- 按钮：用于打开模态框 -->
+                    <button type="button" class="btn btn-dark bt-middle" data-toggle="modal" data-target="#setStatus">
+                        <a href="#" class="text-white" data-toggle="tooltip" data-placement="top" title="题组状态设定">题组状态设定</a>
+                    </button>
                     <button type="button" class="btn btn-primary bt-right" data-toggle="modal" data-target="#selModal">
                         <a href="#" class="text-white" data-toggle="tooltip" data-placement="top" title="点击增加选择类题型">添加题目模板</a>
                     </button>
@@ -112,6 +126,43 @@
                                       </div>
                                       <div class="text-center">
                                         <button type="submit" class="btn btn-primary center-block">立即添加</button>
+                                      </div>
+                                  </form>
+                            </div>
+                    
+                            <!-- 模态框底部 -->
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                            </div>
+                    
+                        </div>
+                        </div>
+                    </div>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="setStatus">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                    
+                            <!-- 模态框头部 -->
+                            <div class="modal-header">
+                            <h4 class="modal-title">题组状态设定</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                    
+                            <!-- 模态框主体 -->
+                            <div class="modal-body">
+                                <form action="/recruit/qus/setstatus/{{ $qusGpId }}" name="setQusForm" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="qusType">设置当前题组状态:</label>
+                                        <select class="form-control" name="setStatus" id="setStatus">
+                                          <option value="0">可编辑状态</option>
+                                          <option value="1">已锁定状态</option>
+                                          <option value="2">已开放状态</option>
+                                        </select>
+                                      </div>
+                                      <div class="text-center">
+                                        <button type="submit" class="btn btn-primary center-block">立即设定</button>
                                       </div>
                                   </form>
                             </div>

@@ -15,7 +15,7 @@ class CreateUserSelTable extends Migration
     {
         Schema::create('user_sel', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id'); // 用户编号
+            $table->unsignedBigInteger('user_id'); // 用户编号
             $table->integer('qus_id'); // 题目编号
             $table->integer('sel_id'); // 选项编号
             $table->timestamps();
