@@ -16,8 +16,8 @@ class CreateUserLmtTable extends Migration
         Schema::create('user_lmt', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedTinyInteger('part1_access'); // 最多三次答题
-            $table->unsignedTinyInteger('part2_access'); // 最多三次答题
+            $table->unsignedTinyInteger('part1_access')->default(0); // 仅一次答题机会
+            $table->unsignedTinyInteger('part2_access')->default(0); // 仅一次答题机会
             $table->timestamps();
         });
     }

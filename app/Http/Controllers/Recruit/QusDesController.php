@@ -56,7 +56,7 @@ class QusDesController extends Controller
         $QusGpModel = new QusGroup();
         $QusGpDts = $QusGpModel->orderBy('id', 'DESC')->paginate(6);
         if (!$QusGpDts->count()) {
-            toast("Didn't find any information",'info')
+            toast("Didn't find any information", 'info')
             ->autoClose(2500)
             ->position('top')->timerProgressBar();
         }
@@ -136,7 +136,7 @@ class QusDesController extends Controller
         $period = $request->input('bel_period');
         $department = $request->input('bel_depart');
         if (QusGroup::where('bel_period', $period)->where('bel_depart', $department)->first()) {
-            toast("The question group of this department already exists",'info')
+            toast("The question group of this department already exists", 'info')
             ->autoClose(2500)
             ->position('top')->timerProgressBar();
             return redirect()->back();
@@ -172,7 +172,7 @@ class QusDesController extends Controller
                 }
             }
         }
-        toast('题组模板配置成功','success')
+        toast('题组模板配置成功', 'success')
         ->autoClose(2500)
         ->position('top')->timerProgressBar();
         return redirect()->back();
@@ -197,7 +197,7 @@ class QusDesController extends Controller
             if (!$upRet) {
                 Alert::error('题组状态更新失败，请重试')->autoClose(2500);
             } else {
-                toast('题组状态更新成功','success')
+                toast('题组状态更新成功', 'success')
                 ->autoClose(2500)
                 ->position('top')->timerProgressBar();
             }
@@ -227,7 +227,7 @@ class QusDesController extends Controller
                 if (!$upRet) {
                     Alert::error('题目内容更新失败，请重试')->autoClose(2500);
                 } else {
-                    toast('题目内容更新成功','success')
+                    toast('题目内容更新成功', 'success')
                     ->autoClose(2500)
                     ->position('top')->timerProgressBar();
                 }
@@ -306,7 +306,7 @@ class QusDesController extends Controller
                 Alert::error("题组预设更新失败，请联系管理员手动更新")->autoClose(2500);
                 return redirect()->back();
             }
-            toast('题目模板增添成功','success')
+            toast('题目模板增添成功', 'success')
             ->autoClose(2500)
             ->position('top')->timerProgressBar();
             return redirect()->back();
@@ -344,7 +344,7 @@ class QusDesController extends Controller
                     if (!$updateRet) {
                         Alert::error('题组信息更新失败，请联系管理员手动更新')->autoClose(2500);
                     } else {
-                        toast('题目删除成功','success')
+                        toast('题目删除成功', 'success')
                         ->autoClose(2500)
                         ->position('top')->timerProgressBar();   
                     }

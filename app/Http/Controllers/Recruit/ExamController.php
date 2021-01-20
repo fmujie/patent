@@ -8,6 +8,7 @@ use App\Models\Qus\QusSel;
 use App\Models\Qus\UserAns;
 use Illuminate\Http\Request;
 use App\Models\Qus\QusGroup;
+use App\Models\Recruit\UserLmt;
 use App\Models\MiniPro\Department;
 use Illuminate\Support\Facades\DB;
 use App\Models\Recruit\RecruitModel;
@@ -24,8 +25,11 @@ class ExamController extends Controller
      * @param [type] $depName1
      * @return void
      */
-    public function index($gpId, $currentStu, $period, $depName1)
+    public function index($gpId, $currentStu, $period, $depName)
     {
+        toast($depName . "——笔试卷", 'info')
+            ->autoClose(2500)
+            ->position('top')->timerProgressBar()->width('400px');
         $qusGpDt = QusGroup::find($gpId);
         $dvsnQusDt = $qusGpDt->quss->groupBy('qus_type')->toArray();
         $sgSelDt = array_key_exists('sg_sel', $dvsnQusDt) ? $dvsnQusDt['sg_sel'] : [];
@@ -47,7 +51,7 @@ class ExamController extends Controller
             'userId'  => $currentStu->id,
             'userName' => $currentStu->name,
             'userPeriod' => $period,
-            'department' => $depName1,
+            'department' => $depName,
             'gpId' => $gpId,
         ]);
     }
@@ -107,9 +111,18 @@ class ExamController extends Controller
                 break;
             }
         }
+        // 交卷1 or 卷2
+        if (!UserLmt::where('user_id', $userId)->first()) {
+            UserLmt::create([
+                'user_id' => $userId,
+                'part1_access' => 1,
+            ]);
+        } else {
+            UserLmt::where('user_id', $userId)->update(['part2_access' => 1]);
+        }
         toast("交卷成功",'success')
             ->autoClose(2500)
-            ->position('top')->timerProgressBar();
+            ->position('top')->timerProgressBar()->width('400px');
         return redirect()->to('recruit/logview');
     }
 
