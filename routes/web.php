@@ -90,6 +90,9 @@ Route::prefix('recruit')->group(function () {
         Route::post('/submit', 'Recruit\ExamController@submitEm');
     });
     Route::get('/logview', 'Recruit\LogRegController@logView');
+    Route::get('/srchview', 'Recruit\SearchController@index');
+    Route::get('/srchres', 'Recruit\SearchController@srchOrSort');
+    Route::get('/sort', 'Recruit\SearchController@srchOrSort');
     Route::get('/perinfor/{rUserId}', 'Recruit\PerInforController@index');
 });
 

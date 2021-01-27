@@ -55,6 +55,7 @@ class QusDesController extends Controller
     {
         $QusGpModel = new QusGroup();
         $QusGpDts = $QusGpModel->orderBy('id', 'DESC')->paginate(6);
+        dd($QusGpDts[0]);
         if (!$QusGpDts->count()) {
             toast("Didn't find any information", 'info')
             ->autoClose(2500)
